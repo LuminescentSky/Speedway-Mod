@@ -3,7 +3,7 @@
 
 
 
-int PlaySoundEffect(int soundEffectID, int ptrToMoby, int playbackMode, char *param_4);
+int PlaySoundEffect(int soundEffectID, int ptrToMoby, int playbackMode, int *param_4);
 
 enum SoundEffectIDS
 {
@@ -53,6 +53,7 @@ SOUND_EFFECT_UNK_DING = 0x25,
 SOUND_EFFECT_DEEP_WIND = 0x26,
 SOUND_EFFECT_SUNNY_FLIGHT_WALL_LOWERS = 0x26,
 SOUND_EFFECT_WATERFALL = 0x27,
+SOUND_EFFECT_SUPERCHARGE = 0x27,
 SOUND_EFFECT_BIRD_1 = 0x28,
 SOUND_EFFECT_BIRD_2 = 0x29,
 SOUND_EFFECT_BIRD_3 = 0x2A,

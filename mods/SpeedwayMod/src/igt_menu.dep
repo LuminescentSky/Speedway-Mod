@@ -1,0 +1,14 @@
+src/igt_menu.o: src/igt_menu.c \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/common.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/custom_types.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/vector.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/moby.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/spyro.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/common.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/main_updates.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/multitap.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/shared_funcs.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/bg_colors.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/custom_text.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/sound.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/SpeedwayMod_0.1.1b_testing/include/shared_variables.h

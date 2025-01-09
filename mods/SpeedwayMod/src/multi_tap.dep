@@ -1,0 +1,7 @@
+src/multi_tap.o: src/multi_tap.c \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/c0mposer/include/common.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/c0mposer/include/custom_types.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/c0mposer/include/vector.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/c0mposer/include/spyro.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/c0mposer/include/common.h \
+ C:/Users/Lucia/Desktop/spyro_modding_stuff/psx-modding-toolchain-main/games/c0mposer/include/moby.h

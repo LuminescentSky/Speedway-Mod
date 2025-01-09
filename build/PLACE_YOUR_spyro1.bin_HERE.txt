@@ -1,1 +1,0 @@
-Place your spyro1.bin in this folder, specifically named "spyro1.bin".

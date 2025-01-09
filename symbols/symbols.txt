@@ -1,11 +1,14 @@
 _levelID = 0x800758B4;
+_altLevelID = 0x8007596c;
 _portalToExitFromInHW = 0x800758AC;
 _levelIDIndex = 0x80075964;
 _currentButton = 0x80077380;
 _currentButtonOneFrame = 0x80077378;
 _secondController = 0x80078E50;
-_leftAnalogStick = 0x800773D2;
-_rightAnalogStick = 0x800773D0;
+_leftAnalogX = 0x800773D2;
+_leftAnalogY = 0x800773D3;
+_rightAnalogX = 0x800773D0;
+_rightAnalogY = 0x800773D1;
 _gameState = 0x800757D8;
 _globalGems = 0x80075860;
 _globalLives = 0x8007582C;
@@ -20,6 +23,10 @@ _cameraStart = 0x80076DD0;
 _nestorMakeUnskipable = 0x801747F4;
 
 _spyro = 0x80078A58;
+
+_onSuperchargeGround = 0x80078CA8;
+_abilityToFly = 0x800078CA4;
+_inabilityToReglide = 0x800078BA8;
 
 _globalTimer = 0x800749e0;
 _levelTimerWhenActive = 0x8007572C;
@@ -41,7 +48,7 @@ _effect_ScreenLetterBox = 0x800756C0;
 
 _selectMenuOption = 0x80075744;
 _startMenuSelection = 0x80075720;
-_isInsideOptionsMenu = 0x800757C8;
+_startMenuState = 0x800757C8;
 _mainMenuState = 0x80078D88;
 _isPastTitleScreen = 0x8007566c;
 
@@ -138,9 +145,59 @@ _3rd_loot_key_collected = 0x801545D8;
 _3rd_loot_key = 0x8014B1DC;
 
 _supercharge_ramp_height = 0x80078BB0;
+_somethingSuperchargeRelated = 0x80078B20;
 
 menuColorR = 0x8001A674;
 menuColorG = 0x8001A67C;
 
 UpdateSpyroAnim = 0x8003CCE4;
 UpdateSpyroAnim_2 = 0x8003CCE8;
+
+_unkVar1 = 0x80078d78;
+_unkVar2 = 0x80078d7c;
+
+_superflameTimer = 0x80078768;
+_isInFlightLevel = 0x80075690;
+theEgg = 0x80075594;
+
+_rawButtons = 0x800786a2;
+_rawRightAnalogX = 0x800786a5;
+_rawRightAnalogY = 0x800786a4;
+_rawLeftAnalogX = 0x800786a6;
+_rawLeftAnalogY = 0x800786a7;
+
+_currentCreditsLevel = 0x800757ac;
+
+_balloonistCurrentOption = 0x800777F0;
+
+_heightCap = 0x800758C0;
+_variableHeightCap = 0x80078BB0;
+_gnastyGnorc = 0x80160f08;
+_currentAnimationState = 0x80078AAC;
+_lootTimer = 0x80155854;
+_drawWorldFunc = 0x8002b9cc;
+_drawObjectsFunc = 0x80019698;
+_drawParticlesFunc = 0x800573c8;
+
+_collectablesBitflags = 0x80077908;
+_keyState = 0x80075830;
+_ptr_keyChestHostGem = 0x80075758;
+
+_globalDragons = 0x80075750;
+_globalEggs = 0x80075810;
+
+_flightCollectedItems = 0x80078630;
+_quitFlightFromPause = 0x8007C1D4;
+_flightMenuState = 0x8007C010;
+_flightLevelTimes = 0x80078618;
+
+_ptrLevelMobys = 0x80075828;
+
+_flightLevelExpirationTimer = 0x80075908;
+
+8016F228 artisans dragon
+
+16D3E8 first moby
+16d440 second moby
+
+16a48c first moby in pal

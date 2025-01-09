@@ -156,9 +156,9 @@ int absoluteMomentum;
 struct Angle angle;                                 //? Spyro's angle vector.
 
 int maybe_speedRelated;
-int unkown21;                               
-int unkown22;
-int unkown23;
+
+struct Vec3 flightMomentum;                         // Maybe does stuff for different states too, too lazy to test right now
+
 int unkown24;
 int unkown25;
 int unkown26;

@@ -13,7 +13,7 @@
 #define HEXIDECIMAL 16
 #define BINARY 2
 
-typedef int                     bool;
+typedef char                    bool;
 
 typedef char                    byte;
 

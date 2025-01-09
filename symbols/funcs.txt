@@ -55,3 +55,9 @@ UpdateTerrain = 0x8002b390;
 TerrainSkipToKeyFrame = 0x8002b444;
 TerrainCurrentKeyFrame = 0x8002b3f4;
 
+StopSounds = 0x80056b28;
+UnkFunction3 = 0x80056ed4;
+UnkFunction4 = 0x8005b7d8;
+UnkFunction6 = 0x8001277c;
+ExitLevel = 0x8002c618;
+SetGamestateDeath = 0x8002c85c;

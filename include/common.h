@@ -4,6 +4,7 @@
 
 #include "custom_types.h"
 #include "vector.h"
+#include "moby.h"
 
 //~~~~~~~~~
 //Constants
@@ -26,9 +27,10 @@ enum Region
 };
 typedef enum Direction
 {
-    LEFT,
-    RIGHT
-}Direction;
+    LEFT = 0,
+    RIGHT = 1,
+    CENTRE = 2
+};
 
 enum Buttons
 {
@@ -52,6 +54,30 @@ enum Buttons
 
     L3_BUTTON = 0x0200,
     R3_BUTTON = 0x0400
+};
+
+enum rawButtons
+{
+    RAW_X = 0x4000,
+    RAW_Q = 0x8000,
+    RAW_O = 0x2000,
+    RAW_T = 0x1000,
+
+    RAW_UP = 0x0010,
+    RAW_RIGHT = 0x0020,
+    RAW_DOWN = 0x0040,
+    RAW_LEFT = 0x0080,
+
+    RAW_SELECT = 0x0001,
+    RAW_START = 0x0008,
+
+    RAW_R1 = 0x0800,
+    RAW_L1 = 0x0400,
+    RAW_R2 = 0x0200,
+    RAW_L2 = 0x0100,
+
+    RAW_L3 = 0x0002,
+    RAW_R3 = 0x0004
 };
 
 enum GameState
@@ -299,7 +325,7 @@ void srand(int seed);
 
 //Drawing Functions
 int DrawTextCapitals(char* text, void* TextInfo, int spacing, char color);                               //? This function draws text with all capitcal letters.
-int DrawTextAll(char *text, int *CapitalTextInfo, int *LowercaseTextInfo, int spacing, char colour);    //? This function draws text with 1 capital letter at the beginning of each word.
+int DrawTextAll(char *text, void* CapitalTextInfo, void *LowercaseTextInfo, int spacing, char colour);    //? This function draws text with 1 capital letter at the beginning of each word.
 int DrawTextBox(int leftBoundaryDistanceFromLeft, int RightBoundaryDistanceFromLeft, int TopBoundaryDistanceFromTop, int BottomBoundaryDistanceFromTop); //? This function draws a textbox with gold lines around it.
 void DrawArrow(int *MobyInfo, unsigned int timer, int arrowDirection);                                  //? This function draws an arrow either to the left or rigt.
 void DrawLine(int point1X, int point1Y, int point2X, int point2Y);                                      //? This function draws a yellow line.
@@ -342,7 +368,6 @@ int TerrainCurrentKeyFrame(int terrainNumber);                                  
 //Booleans
 extern bool _isPastTitleScreen; //0x8007566c                 //? 1 If has started new game/continue game. Basically after you leave the title screen this is always 1.
 extern bool _isLoading; //0x800756B0                         //? 1 If is in loading screen.
-extern bool _isInsideOptionsMenu; //0x800757C8               //? 1 If inside options menu in start menu.
 extern bool _canFlyIn; //0x800756D0                          //? 1 If can fly in to level. If set to 0, will just fade in instead of flying in. I assume this is a leftover from prototypes?
 extern bool _flightWingsAnimation; //0x80078CA4
 extern bool _shouldRespawnAtCheckpoint; //0x80077888
@@ -392,12 +417,13 @@ extern int _shouldCameraFollowSpyro; //0x80033b4c            //? This is actuall
 
 extern char _mainMenuState; //0x80078D88                     //? This is the current state of the main menu. Should make an enum for this
 extern int _ballonistState; //0x800777e8                     //? The Sub State for the balloonist. Should make an enum for this.
-extern unsigned int _levelLoadState; //0x80075864            //? The sub state for level loads.
+extern int _levelLoadState; //0x80075864            //? The sub state for level loads.
 extern int _dragonState; //0x80077058                        //? The sub state for dragon cracking.
 extern int _keyState; //0x80075830                           //? The status of the current level's key
 
 extern int _startMenuSelection; //0x80075720                 //? This is the current option selected in the main start menu, according to the StartMenuSelections enum's.
 extern int _selectMenuOption; //0x80075744                   //? This is the current homeworld menu in the inventory menu according to the InventoryMenuSelections enum's.
+extern int _startMenuState; //0x800757C8                     //? 0 if inside Start Menu, 1 if inside Options Menu, 2 if inside Quit Game Menu
 
 extern char _whichCutscene; //0x80078D94                     //? Which cutscene is currently being played
 
@@ -460,5 +486,114 @@ extern int _treeTopsThiefTimer;
 
 extern short menuColorR;
 extern short menuColorG;
+
+extern int _altLevelID;
+
+extern int _somethingSuperchargeRelated;
+
+void UnkFunction3();
+void UnkFunction4();
+extern int _unkVar1;
+extern int _unkVar2;
+extern int _unkVar3;
+void UnkFunction6();
+extern int _unkVar4;
+
+void StopSounds(int);
+
+extern int _superflameTimer;
+extern int _isInFlightLevel;
+extern int theEgg;
+
+extern short _rawButtons;
+extern unsigned char _rawRightAnalogX;
+extern unsigned char _rawRightAnalogY;
+extern unsigned char _rawLeftAnalogX;
+extern unsigned char _rawLeftAnalogY;
+
+extern unsigned char _rightAnalogX;
+extern unsigned char _rightAnalogY;
+extern unsigned char _leftAnalogX;
+extern unsigned char _leftAnalogY;
+
+extern int _currentCreditsLevel;
+extern int _balloonistCurrentOption;
+
+extern int _currentAnimationState;
+
+extern int _heightCap;
+extern int _variableHeightCap;
+extern char _gnastyGnorc;
+extern int _lootTimer;
+extern int _superchargeInputRelated;
+extern int _drawWorldFunc;
+extern int _drawObjectsFunc;
+extern int _drawParticlesFunc;
+
+extern short _maxGemsPerLevel[35];
+extern char _maxDragonsPerLevel[35];
+extern char _maxEggsPerLevel[18];
+extern int _gemsPerLevel[35];
+extern int _dragonsPerLevel[35];
+extern int _eggsPerLevel[18];
+
+extern int _collectablesBitflags;
+extern int _keyState;
+extern int* _ptr_keyChestHostGem;
+
+extern int _lootKey1;
+extern int _lootKey2;
+extern int _lootKey3;
+extern int _lootKey4;
+
+extern char _HUDlivesInfo;
+
+extern int _artisansLiveFlag;
+extern int _peaceKeepersLiveFlag;
+extern int _magicCraftersLiveFlag;
+extern int _beastMakersLiveFlag;
+extern int _dreamWeaversLiveFlag;
+extern int _gnastysWorldDragonFlag;
+extern int _gnastyGnorcFistGemFlag;
+
+extern int _blowhardPhase;
+
+extern int _orbCount;
+
+extern int _inventoryString;
+
+extern int _inventoryPage;
+extern char _enteredLevelFlags[35];
+extern int _midInventoryHookAddress;
+
+extern int* _ptr_levelName;
+extern int* _ptr_homeworldName;
+
+extern int _inventoryPageTransition;
+
+extern int _flightIGT;
+extern int _flightCollectedItems[4];
+extern int _flightLevelTimes[5];
+extern int _flightMenuState;
+extern int _quitFlightFromPause;
+extern char _permanentFlightCollectableFlags[25];
+
+extern int _loadScreenVisualGems[8];
+extern int _loadScreenVisualGemsAmount;
+extern int _someDragonThing;
+extern int* _ptrLevelMobys;
+
+extern int* _ptr_exitLevel;
+extern int* _ptr_quit;
+extern int* _ptr_quitGame;
+
+extern int _textDrawingTimer;
+extern int _flightLevelExpirationTimer;
+
+extern int _setGnexusDragonToMagnus;
+
+extern int _menuTimer;
+
+void PausingRelated(int param_1);
 
 #endif /* COMMON_H */
