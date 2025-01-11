@@ -589,10 +589,24 @@ extern int* _ptr_quitGame;
 
 extern int _textDrawingTimer;
 extern int _flightLevelExpirationTimer;
+extern int _flightExpirationVisualTimer;
 
 extern int _setGnexusDragonToMagnus;
 
 extern int _menuTimer;
+extern int _timeTrial5sNoise;
+extern int _sunnyFlightTrain0;
+extern int _sunnyFlightTrain1;
+extern int _sunnyFlightTrain2;
+extern int _sunnyFlightTrain3;
+extern int _sunnyFlightTrain4;
+extern int _sunnyFlightTrain5;
+extern int _sunnyFlightTrain6;
+extern int _sunnyFlightTrain7;
+extern int _sunnyFlightTrain8;
+extern int _sunnyFlightTrain9;
+extern int _sunnyFlightTrain10;
+extern int _sunnyFlightTrain11;
 
 void PausingRelated(int param_1);
 

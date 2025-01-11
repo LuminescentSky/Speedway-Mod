@@ -35,7 +35,6 @@ void UndoInventoryChanges() {
 void BeforeDeath() {
     if (_globalLives == 0) {
         timeTrialFailedReason = 4;
-        _spyro.health = 3;
         LoadIGTMenu(true);
         if (_altLevelID % 10 == 5) {
             _flightMenuState = 0;
@@ -71,6 +70,8 @@ void SkipIntro()
         }
         i++;
     }
+    completionFlags[0] = 0;
+    completionFlags[1] = 0;
     _artisansLiveFlag |= 0x40000000;
     _peaceKeepersLiveFlag |= 0x04000000;
     _magicCraftersLiveFlag |= 0x00400000;
@@ -250,16 +251,4 @@ void RestartDrawWorldAndObjects(void) {
 
     _drawParticlesFunc = 0x3C011F80;
     *(int*)((char*)&_drawParticlesFunc + 4) = 0xAC300000;
-}
-
-void NoDragonAnimation() {
-    Moby* mobyIteration = _ptrLevelMobys;
-        char dragonLoop = 0;
-        do {
-            if (mobyIteration->type == 250) {
-                *(int*)((char*)mobyIteration->ptr_mobyData + 0x18) = -1;
-                dragonLoop++;
-            }
-            mobyIteration++;
-        } while (dragonLoop < _maxDragonsPerLevel[realLevelIDIndex] && _altLevelID != GNASTYS_WORLD_ID);
 }

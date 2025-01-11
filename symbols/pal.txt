@@ -205,3 +205,19 @@ _delbin = 0x8016D5B4;
 _setGnexusDragonToMagnus = 0x80081059;
 
 _menuTimer = 0x8007c18c;
+_flightExpirationVisualTimer = 0x8007C110;
+
+OpenFlightMenu = 0x800817a0;
+_timeTrial5sNoise = 0x80180AB0;
+_sunnyFlightTrain0 = 0x8017AE18;
+_sunnyFlightTrain1 = 0x8017B5B8;
+_sunnyFlightTrain2 = 0x8017BD58;
+_sunnyFlightTrain3 = 0x8017C4F8;
+_sunnyFlightTrain4 = 0x8017CC98;
+_sunnyFlightTrain5 = 0x8017D438;
+_sunnyFlightTrain6 = 0x8017DBD8;
+_sunnyFlightTrain7 = 0x8017E378;
+_sunnyFlightTrain8 = 0x8017EB18;
+_sunnyFlightTrain9 = 0x8017F2B8;
+_sunnyFlightTrain10 = 0x8017FA58;
+_sunnyFlightTrain11 = 0x801801F8;

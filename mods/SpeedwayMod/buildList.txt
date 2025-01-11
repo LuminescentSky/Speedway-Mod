@@ -33,11 +33,10 @@ PAL, exe, 0x80033abc, 0x0, asm/exitLevelHook.s
 PAL, exe, 0x80031660, 0x0, asm/stopSoundHook.s
 PAL, exe, 0x800383a4, 0x0, asm/stopSoundHook2.s
 PAL, exe, 0x80031d3c, 0x0, asm/fairyFix.s
-PAL, header, 0x8000B0B8, 0x0, src/custom_title_screen.c, TitleScreen.bin
-PAL, exe, 0x80036558, 0x0, src/main.c src/supercharge.c, OtherStuff.bin
-PAL, exe, 0x80022058, 0x0, src/gametime.c src/custom_text.c, IGT.bin
-PAL, exe, 0x8006bcb4, 0x0, src/misc_functions.c src/check_region.c src/misc_update.c, IL.bin
-PAL, exe, 0x800343b4, 0x0, src/menu_hooks.c, Misc.bin
+PAL, header, 0x8000B0B8, 0x0, src/custom_title_screen.c, Header.bin
+PAL, exe, 0x800343b4, 0x0, src/menu_hooks.c src/main.c src/supercharge.c, DragonAndFairyUpdate.bin
+PAL, exe, 0x8002191c, 0x0, src/misc_update.c src/custom_text.c src/gametime.c, DrawDragonAndFairyText.bin
+PAL, exe, 0x8006bcb4, 0x0, src/check_region.c src/misc_functions.c, MemoryCardArea.bin
 
 PS2_NTSC, exe, 0x80033e38, 0x0, asm/hook.s
 PS2_NTSC, exe, 0x8002e27c, 0x0, asm/quitGame.s

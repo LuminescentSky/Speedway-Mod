@@ -84,6 +84,8 @@ extern char currentFlightCollectableFlags[5];
 
 extern bool selectedQuitGame;
 
+extern int completionFlags[2];
+
 bool LevelComplete(void);
 
 #endif /* SHARED_VARIABLES_H */

@@ -13,6 +13,8 @@ int levelGameTime = 0;
 int currentLevel = 0;
 int customLootTimer = 0;
 
+int completionFlags[2] = {0, 0};
+
 char sharpTurnOffset = 0;
 char calibrationInfoTimer = 0;
 char sharpTurnInfo[16];
@@ -31,6 +33,11 @@ char asciiTime[11];
 char timerArray[7];
 
 void GameTime(void) {
+    // Set level complete flag
+    if (LevelComplete()) {
+        completionFlags[realLevelIDIndex / 32] |= 1 << (realLevelIDIndex % 32);
+    }
+    
 	// Reset IGT on Title Screen
 	if (customMenuState == TITLE) {
 		totalGameTime = 0;

@@ -1,13 +1,13 @@
 __heap_base = __ovr_end;
 
-__ovr_start = 0x8000a91c;
+__ovr_start = 0x8000b0b8;
 
 SECTIONS {
     OVERLAY __ovr_start : SUBALIGN(4)
     {
         .asmhooks
         {
-            . = . + 0x2e768;
+            . = . + 0x2dfcc;
             KEEP(asm/hook.o(.text*))
             KEEP(asm/hook.o(.rodata*))
             KEEP(asm/hook.o(.sdata*))
@@ -21,7 +21,7 @@ SECTIONS {
         }
         .asminventoryToPauseHooks
         {
-            . = . + 0x29460;
+            . = . + 0x28cc4;
             KEEP(asm/inventoryToPauseHook.o(.text*))
             KEEP(asm/inventoryToPauseHook.o(.rodata*))
             KEEP(asm/inventoryToPauseHook.o(.sdata*))
@@ -35,7 +35,7 @@ SECTIONS {
         }
         .asminventoryToGameplayHooks
         {
-            . = . + 0x2948c;
+            . = . + 0x28cf0;
             KEEP(asm/inventoryToGameplayHook.o(.text*))
             KEEP(asm/inventoryToGameplayHook.o(.rodata*))
             KEEP(asm/inventoryToGameplayHook.o(.sdata*))
@@ -49,7 +49,7 @@ SECTIONS {
         }
         .asminventoryToCreditsHooks
         {
-            . = . + 0x27d24;
+            . = . + 0x27588;
             KEEP(asm/inventoryToCreditsHook.o(.text*))
             KEEP(asm/inventoryToCreditsHook.o(.rodata*))
             KEEP(asm/inventoryToCreditsHook.o(.sdata*))
@@ -63,7 +63,7 @@ SECTIONS {
         }
         .asmopenInventoryHooks
         {
-            . = . + 0x26ed8;
+            . = . + 0x2673c;
             KEEP(asm/openInventoryHook.o(.text*))
             KEEP(asm/openInventoryHook.o(.rodata*))
             KEEP(asm/openInventoryHook.o(.sdata*))
@@ -77,7 +77,7 @@ SECTIONS {
         }
         .asmcheats
         {
-            . = . + 0x27f00;
+            . = . + 0x27764;
             KEEP(asm/cheat.o(.text*))
             KEEP(asm/cheat.o(.rodata*))
             KEEP(asm/cheat.o(.sdata*))
@@ -91,7 +91,7 @@ SECTIONS {
         }
         .asmbeforeInventoryUpdateHooks
         {
-            . = . + 0x2e200;
+            . = . + 0x2da64;
             KEEP(asm/beforeInventoryUpdateHook.o(.text*))
             KEEP(asm/beforeInventoryUpdateHook.o(.rodata*))
             KEEP(asm/beforeInventoryUpdateHook.o(.sdata*))
@@ -105,7 +105,7 @@ SECTIONS {
         }
         .asmbeforePauseMenuUpdateHooks
         {
-            . = . + 0x2e1e8;
+            . = . + 0x2da4c;
             KEEP(asm/beforePauseMenuUpdateHook.o(.text*))
             KEEP(asm/beforePauseMenuUpdateHook.o(.rodata*))
             KEEP(asm/beforePauseMenuUpdateHook.o(.sdata*))
@@ -119,7 +119,7 @@ SECTIONS {
         }
         .asmquitGames
         {
-            . = . + 0x2887c;
+            . = . + 0x280e0;
             KEEP(asm/quitGame.o(.text*))
             KEEP(asm/quitGame.o(.rodata*))
             KEEP(asm/quitGame.o(.sdata*))
@@ -133,7 +133,7 @@ SECTIONS {
         }
         .asmmenuTextHooks
         {
-            . = . + 0x16584;
+            . = . + 0x15de8;
             KEEP(asm/menuTextHook.o(.text*))
             KEEP(asm/menuTextHook.o(.rodata*))
             KEEP(asm/menuTextHook.o(.sdata*))
@@ -147,7 +147,7 @@ SECTIONS {
         }
         .asmbeforeMenuTextHooks
         {
-            . = . + 0x19550;
+            . = . + 0x18db4;
             KEEP(asm/beforeMenuTextHook.o(.text*))
             KEEP(asm/beforeMenuTextHook.o(.rodata*))
             KEEP(asm/beforeMenuTextHook.o(.sdata*))
@@ -161,7 +161,7 @@ SECTIONS {
         }
         .asmbeforeDeathHooks
         {
-            . = . + 0x45214;
+            . = . + 0x44a78;
             KEEP(asm/beforeDeathHook.o(.text*))
             KEEP(asm/beforeDeathHook.o(.rodata*))
             KEEP(asm/beforeDeathHook.o(.sdata*))
@@ -175,7 +175,7 @@ SECTIONS {
         }
         .asmdontDrawText1_pals
         {
-            . = . + 0x18d44;
+            . = . + 0x185a8;
             KEEP(asm/dontDrawText1_pal.o(.text*))
             KEEP(asm/dontDrawText1_pal.o(.rodata*))
             KEEP(asm/dontDrawText1_pal.o(.sdata*))
@@ -189,7 +189,7 @@ SECTIONS {
         }
         .asmdontDrawText2_pals
         {
-            . = . + 0x18db4;
+            . = . + 0x18618;
             KEEP(asm/dontDrawText2_pal.o(.text*))
             KEEP(asm/dontDrawText2_pal.o(.rodata*))
             KEEP(asm/dontDrawText2_pal.o(.sdata*))
@@ -203,7 +203,7 @@ SECTIONS {
         }
         .asmdisableChargeSound_pals
         {
-            . = . + 0x39c00;
+            . = . + 0x39464;
             KEEP(asm/disableChargeSound_pal.o(.text*))
             KEEP(asm/disableChargeSound_pal.o(.rodata*))
             KEEP(asm/disableChargeSound_pal.o(.sdata*))
@@ -217,7 +217,7 @@ SECTIONS {
         }
         .asmoverwriteRawInputss
         {
-            . = . + 0x63cfc;
+            . = . + 0x63560;
             KEEP(asm/overwriteRawInputs.o(.text*))
             KEEP(asm/overwriteRawInputs.o(.rodata*))
             KEEP(asm/overwriteRawInputs.o(.sdata*))
@@ -231,7 +231,7 @@ SECTIONS {
         }
         .asmexitLevelHooks
         {
-            . = . + 0x291a0;
+            . = . + 0x28a04;
             KEEP(asm/exitLevelHook.o(.text*))
             KEEP(asm/exitLevelHook.o(.rodata*))
             KEEP(asm/exitLevelHook.o(.sdata*))
@@ -245,7 +245,7 @@ SECTIONS {
         }
         .asmstopSoundHooks
         {
-            . = . + 0x26d44;
+            . = . + 0x265a8;
             KEEP(asm/stopSoundHook.o(.text*))
             KEEP(asm/stopSoundHook.o(.rodata*))
             KEEP(asm/stopSoundHook.o(.sdata*))
@@ -259,7 +259,7 @@ SECTIONS {
         }
         .asmstopSoundHook2s
         {
-            . = . + 0x2da88;
+            . = . + 0x2d2ec;
             KEEP(asm/stopSoundHook2.o(.text*))
             KEEP(asm/stopSoundHook2.o(.rodata*))
             KEEP(asm/stopSoundHook2.o(.sdata*))
@@ -273,7 +273,7 @@ SECTIONS {
         }
         .asmfairyFixs
         {
-            . = . + 0x27420;
+            . = . + 0x26c84;
             KEEP(asm/fairyFix.o(.text*))
             KEEP(asm/fairyFix.o(.rodata*))
             KEEP(asm/fairyFix.o(.sdata*))
@@ -285,7 +285,7 @@ SECTIONS {
             . = ALIGN(4);
             __ovr_end = .;
         }
-        .TitleScreen
+        .Header
         {
             KEEP(src/custom_title_screen.o(.text*))
             KEEP(src/custom_title_screen.o(.rodata*))
@@ -298,86 +298,79 @@ SECTIONS {
             . = ALIGN(4);
             __ovr_end = .;
         }
-        .OtherStuff
+        .DragonAndFairyUpdate
         {
-            . = . + 0x2bc3c;
+            . = . + 0x292fc;
+            KEEP(src/menu_hooks.o(.text*))
             KEEP(src/main.o(.text*))
             KEEP(src/supercharge.o(.text*))
+            KEEP(src/menu_hooks.o(.rodata*))
             KEEP(src/main.o(.rodata*))
             KEEP(src/supercharge.o(.rodata*))
+            KEEP(src/menu_hooks.o(.sdata*))
             KEEP(src/main.o(.sdata*))
             KEEP(src/supercharge.o(.sdata*))
+            KEEP(src/menu_hooks.o(.data*))
             KEEP(src/main.o(.data*))
             KEEP(src/supercharge.o(.data*))
+            KEEP(src/menu_hooks.o(.sbss*))
             KEEP(src/main.o(.sbss*))
             KEEP(src/supercharge.o(.sbss*))
+            KEEP(src/menu_hooks.o(.bss*))
             KEEP(src/main.o(.bss*))
             KEEP(src/supercharge.o(.bss*))
+            KEEP(src/menu_hooks.o(.ctors))
             KEEP(src/main.o(.ctors))
             KEEP(src/supercharge.o(.ctors))
             
             . = ALIGN(4);
             __ovr_end = .;
         }
-        .IGT
+        .DrawDragonAndFairyText
         {
-            . = . + 0x1773c;
-            KEEP(src/gametime.o(.text*))
-            KEEP(src/custom_text.o(.text*))
-            KEEP(src/gametime.o(.rodata*))
-            KEEP(src/custom_text.o(.rodata*))
-            KEEP(src/gametime.o(.sdata*))
-            KEEP(src/custom_text.o(.sdata*))
-            KEEP(src/gametime.o(.data*))
-            KEEP(src/custom_text.o(.data*))
-            KEEP(src/gametime.o(.sbss*))
-            KEEP(src/custom_text.o(.sbss*))
-            KEEP(src/gametime.o(.bss*))
-            KEEP(src/custom_text.o(.bss*))
-            KEEP(src/gametime.o(.ctors))
-            KEEP(src/custom_text.o(.ctors))
-            
-            . = ALIGN(4);
-            __ovr_end = .;
-        }
-        .IL
-        {
-            . = . + 0x61398;
-            KEEP(src/misc_functions.o(.text*))
-            KEEP(src/check_region.o(.text*))
+            . = . + 0x16864;
             KEEP(src/misc_update.o(.text*))
-            KEEP(src/misc_functions.o(.rodata*))
-            KEEP(src/check_region.o(.rodata*))
+            KEEP(src/custom_text.o(.text*))
+            KEEP(src/gametime.o(.text*))
             KEEP(src/misc_update.o(.rodata*))
-            KEEP(src/misc_functions.o(.sdata*))
-            KEEP(src/check_region.o(.sdata*))
+            KEEP(src/custom_text.o(.rodata*))
+            KEEP(src/gametime.o(.rodata*))
             KEEP(src/misc_update.o(.sdata*))
-            KEEP(src/misc_functions.o(.data*))
-            KEEP(src/check_region.o(.data*))
+            KEEP(src/custom_text.o(.sdata*))
+            KEEP(src/gametime.o(.sdata*))
             KEEP(src/misc_update.o(.data*))
-            KEEP(src/misc_functions.o(.sbss*))
-            KEEP(src/check_region.o(.sbss*))
+            KEEP(src/custom_text.o(.data*))
+            KEEP(src/gametime.o(.data*))
             KEEP(src/misc_update.o(.sbss*))
-            KEEP(src/misc_functions.o(.bss*))
-            KEEP(src/check_region.o(.bss*))
+            KEEP(src/custom_text.o(.sbss*))
+            KEEP(src/gametime.o(.sbss*))
             KEEP(src/misc_update.o(.bss*))
-            KEEP(src/misc_functions.o(.ctors))
-            KEEP(src/check_region.o(.ctors))
+            KEEP(src/custom_text.o(.bss*))
+            KEEP(src/gametime.o(.bss*))
             KEEP(src/misc_update.o(.ctors))
+            KEEP(src/custom_text.o(.ctors))
+            KEEP(src/gametime.o(.ctors))
             
             . = ALIGN(4);
             __ovr_end = .;
         }
-        .Misc
+        .MemoryCardArea
         {
-            . = . + 0x29a98;
-            KEEP(src/menu_hooks.o(.text*))
-            KEEP(src/menu_hooks.o(.rodata*))
-            KEEP(src/menu_hooks.o(.sdata*))
-            KEEP(src/menu_hooks.o(.data*))
-            KEEP(src/menu_hooks.o(.sbss*))
-            KEEP(src/menu_hooks.o(.bss*))
-            KEEP(src/menu_hooks.o(.ctors))
+            . = . + 0x60bfc;
+            KEEP(src/check_region.o(.text*))
+            KEEP(src/misc_functions.o(.text*))
+            KEEP(src/check_region.o(.rodata*))
+            KEEP(src/misc_functions.o(.rodata*))
+            KEEP(src/check_region.o(.sdata*))
+            KEEP(src/misc_functions.o(.sdata*))
+            KEEP(src/check_region.o(.data*))
+            KEEP(src/misc_functions.o(.data*))
+            KEEP(src/check_region.o(.sbss*))
+            KEEP(src/misc_functions.o(.sbss*))
+            KEEP(src/check_region.o(.bss*))
+            KEEP(src/misc_functions.o(.bss*))
+            KEEP(src/check_region.o(.ctors))
+            KEEP(src/misc_functions.o(.ctors))
             
             . = ALIGN(4);
             __ovr_end = .;

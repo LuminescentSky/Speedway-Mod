@@ -62,6 +62,10 @@ Discarded input sections
  .MIPS.abiflags
                 0x00000000       0x18 src/custom_title_screen.o
  .pdr           0x00000000       0x40 src/custom_title_screen.o
+ .reginfo       0x00000000       0x18 src/menu_hooks.o
+ .MIPS.abiflags
+                0x00000000       0x18 src/menu_hooks.o
+ .pdr           0x00000000      0x140 src/menu_hooks.o
  .reginfo       0x00000000       0x18 src/main.o
  .MIPS.abiflags
                 0x00000000       0x18 src/main.o
@@ -70,30 +74,26 @@ Discarded input sections
  .MIPS.abiflags
                 0x00000000       0x18 src/supercharge.o
  .pdr           0x00000000       0xa0 src/supercharge.o
- .reginfo       0x00000000       0x18 src/gametime.o
- .MIPS.abiflags
-                0x00000000       0x18 src/gametime.o
- .pdr           0x00000000       0x80 src/gametime.o
- .reginfo       0x00000000       0x18 src/custom_text.o
- .MIPS.abiflags
-                0x00000000       0x18 src/custom_text.o
- .pdr           0x00000000       0x20 src/custom_text.o
- .reginfo       0x00000000       0x18 src/misc_functions.o
- .MIPS.abiflags
-                0x00000000       0x18 src/misc_functions.o
- .pdr           0x00000000      0x200 src/misc_functions.o
- .reginfo       0x00000000       0x18 src/check_region.o
- .MIPS.abiflags
-                0x00000000       0x18 src/check_region.o
- .pdr           0x00000000       0x20 src/check_region.o
  .reginfo       0x00000000       0x18 src/misc_update.o
  .MIPS.abiflags
                 0x00000000       0x18 src/misc_update.o
  .pdr           0x00000000       0x20 src/misc_update.o
- .reginfo       0x00000000       0x18 src/menu_hooks.o
+ .reginfo       0x00000000       0x18 src/custom_text.o
  .MIPS.abiflags
-                0x00000000       0x18 src/menu_hooks.o
- .pdr           0x00000000      0x140 src/menu_hooks.o
+                0x00000000       0x18 src/custom_text.o
+ .pdr           0x00000000       0x20 src/custom_text.o
+ .reginfo       0x00000000       0x18 src/gametime.o
+ .MIPS.abiflags
+                0x00000000       0x18 src/gametime.o
+ .pdr           0x00000000       0x80 src/gametime.o
+ .reginfo       0x00000000       0x18 src/check_region.o
+ .MIPS.abiflags
+                0x00000000       0x18 src/check_region.o
+ .pdr           0x00000000       0x20 src/check_region.o
+ .reginfo       0x00000000       0x18 src/misc_functions.o
+ .MIPS.abiflags
+                0x00000000       0x18 src/misc_functions.o
+ .pdr           0x00000000      0x1e0 src/misc_functions.o
 
 Memory Configuration
 
@@ -123,25 +123,25 @@ LOAD asm/stopSoundHook.o
 LOAD asm/stopSoundHook2.o
 LOAD asm/fairyFix.o
 LOAD src/custom_title_screen.o
+LOAD src/menu_hooks.o
 LOAD src/main.o
 LOAD src/supercharge.o
-LOAD src/gametime.o
-LOAD src/custom_text.o
-LOAD src/misc_functions.o
-LOAD src/check_region.o
 LOAD src/misc_update.o
-LOAD src/menu_hooks.o
-                0x8000a91c                        OVR_START_ADDR = 0x8000a91c
-                0x800359bc                        __heap_base = __ovr_end
-                0x8000a91c                        __ovr_start = 0x8000a91c
+LOAD src/custom_text.o
+LOAD src/gametime.o
+LOAD src/check_region.o
+LOAD src/misc_functions.o
+                0x8000b0b8                        OVR_START_ADDR = 0x8000b0b8
+                0x8006c880                        __heap_base = __ovr_end
+                0x8000b0b8                        __ovr_start = 0x8000b0b8
 
 .MIPS.abiflags  0x00000000       0x18
  .MIPS.abiflags
                 0x00000000       0x18 asm/hook.o
 
-.asmhooks       0x8000a91c    0x2e76c
-                0x80039084                        . = (. + 0x2e768)
- *fill*         0x8000a91c    0x2e768 
+.asmhooks       0x8000b0b8    0x2dfd0
+                0x80039084                        . = (. + 0x2dfcc)
+ *fill*         0x8000b0b8    0x2dfcc 
  asm/hook.o(.text*)
  .text          0x80039084        0x4 asm/hook.o
  asm/hook.o(.rodata*)
@@ -153,14 +153,14 @@ LOAD src/menu_hooks.o
  .bss           0x80039088        0x0 asm/hook.o
  asm/hook.o(.ctors)
                 0x80039088                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmhooks = LOADADDR (.asmhooks))
                 [!provide]                        PROVIDE (__load_stop_asmhooks = (LOADADDR (.asmhooks) + SIZEOF (.asmhooks)))
 
 .asminventoryToPauseHooks
-                0x8000a91c    0x29464 load address 0x80039088
-                0x80033d7c                        . = (. + 0x29460)
- *fill*         0x8000a91c    0x29460 
+                0x8000b0b8    0x28cc8 load address 0x80039088
+                0x80033d7c                        . = (. + 0x28cc4)
+ *fill*         0x8000b0b8    0x28cc4 
  asm/inventoryToPauseHook.o(.text*)
  .text          0x80033d7c        0x4 asm/inventoryToPauseHook.o
  asm/inventoryToPauseHook.o(.rodata*)
@@ -172,14 +172,14 @@ LOAD src/menu_hooks.o
  .bss           0x80033d80        0x0 asm/inventoryToPauseHook.o
  asm/inventoryToPauseHook.o(.ctors)
                 0x80033d80                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asminventoryToPauseHooks = LOADADDR (.asminventoryToPauseHooks))
                 [!provide]                        PROVIDE (__load_stop_asminventoryToPauseHooks = (LOADADDR (.asminventoryToPauseHooks) + SIZEOF (.asminventoryToPauseHooks)))
 
 .asminventoryToGameplayHooks
-                0x8000a91c    0x29490 load address 0x800624ec
-                0x80033da8                        . = (. + 0x2948c)
- *fill*         0x8000a91c    0x2948c 
+                0x8000b0b8    0x28cf4 load address 0x80061d50
+                0x80033da8                        . = (. + 0x28cf0)
+ *fill*         0x8000b0b8    0x28cf0 
  asm/inventoryToGameplayHook.o(.text*)
  .text          0x80033da8        0x4 asm/inventoryToGameplayHook.o
  asm/inventoryToGameplayHook.o(.rodata*)
@@ -191,14 +191,14 @@ LOAD src/menu_hooks.o
  .bss           0x80033dac        0x0 asm/inventoryToGameplayHook.o
  asm/inventoryToGameplayHook.o(.ctors)
                 0x80033dac                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asminventoryToGameplayHooks = LOADADDR (.asminventoryToGameplayHooks))
                 [!provide]                        PROVIDE (__load_stop_asminventoryToGameplayHooks = (LOADADDR (.asminventoryToGameplayHooks) + SIZEOF (.asminventoryToGameplayHooks)))
 
 .asminventoryToCreditsHooks
-                0x8000a91c    0x27d28 load address 0x8008b97c
-                0x80032640                        . = (. + 0x27d24)
- *fill*         0x8000a91c    0x27d24 
+                0x8000b0b8    0x2758c load address 0x8008aa44
+                0x80032640                        . = (. + 0x27588)
+ *fill*         0x8000b0b8    0x27588 
  asm/inventoryToCreditsHook.o(.text*)
  .text          0x80032640        0x4 asm/inventoryToCreditsHook.o
  asm/inventoryToCreditsHook.o(.rodata*)
@@ -210,14 +210,14 @@ LOAD src/menu_hooks.o
  .bss           0x80032644        0x0 asm/inventoryToCreditsHook.o
  asm/inventoryToCreditsHook.o(.ctors)
                 0x80032644                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asminventoryToCreditsHooks = LOADADDR (.asminventoryToCreditsHooks))
                 [!provide]                        PROVIDE (__load_stop_asminventoryToCreditsHooks = (LOADADDR (.asminventoryToCreditsHooks) + SIZEOF (.asminventoryToCreditsHooks)))
 
 .asmopenInventoryHooks
-                0x8000a91c    0x26edc load address 0x800b36a4
-                0x800317f4                        . = (. + 0x26ed8)
- *fill*         0x8000a91c    0x26ed8 
+                0x8000b0b8    0x26740 load address 0x800b1fd0
+                0x800317f4                        . = (. + 0x2673c)
+ *fill*         0x8000b0b8    0x2673c 
  asm/openInventoryHook.o(.text*)
  .text          0x800317f4        0x4 asm/openInventoryHook.o
  asm/openInventoryHook.o(.rodata*)
@@ -229,13 +229,13 @@ LOAD src/menu_hooks.o
  .bss           0x800317f8        0x0 asm/openInventoryHook.o
  asm/openInventoryHook.o(.ctors)
                 0x800317f8                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmopenInventoryHooks = LOADADDR (.asmopenInventoryHooks))
                 [!provide]                        PROVIDE (__load_stop_asmopenInventoryHooks = (LOADADDR (.asmopenInventoryHooks) + SIZEOF (.asmopenInventoryHooks)))
 
-.asmcheats      0x8000a91c    0x27f04 load address 0x800da580
-                0x8003281c                        . = (. + 0x27f00)
- *fill*         0x8000a91c    0x27f00 
+.asmcheats      0x8000b0b8    0x27768 load address 0x800d8710
+                0x8003281c                        . = (. + 0x27764)
+ *fill*         0x8000b0b8    0x27764 
  asm/cheat.o(.text*)
  .text          0x8003281c        0x4 asm/cheat.o
  asm/cheat.o(.rodata*)
@@ -247,14 +247,14 @@ LOAD src/menu_hooks.o
  .bss           0x80032820        0x0 asm/cheat.o
  asm/cheat.o(.ctors)
                 0x80032820                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmcheats = LOADADDR (.asmcheats))
                 [!provide]                        PROVIDE (__load_stop_asmcheats = (LOADADDR (.asmcheats) + SIZEOF (.asmcheats)))
 
 .asmbeforeInventoryUpdateHooks
-                0x8000a91c    0x2e204 load address 0x80102484
-                0x80038b1c                        . = (. + 0x2e200)
- *fill*         0x8000a91c    0x2e200 
+                0x8000b0b8    0x2da68 load address 0x800ffe78
+                0x80038b1c                        . = (. + 0x2da64)
+ *fill*         0x8000b0b8    0x2da64 
  asm/beforeInventoryUpdateHook.o(.text*)
  .text          0x80038b1c        0x4 asm/beforeInventoryUpdateHook.o
  asm/beforeInventoryUpdateHook.o(.rodata*)
@@ -266,14 +266,14 @@ LOAD src/menu_hooks.o
  .bss           0x80038b20        0x0 asm/beforeInventoryUpdateHook.o
  asm/beforeInventoryUpdateHook.o(.ctors)
                 0x80038b20                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmbeforeInventoryUpdateHooks = LOADADDR (.asmbeforeInventoryUpdateHooks))
                 [!provide]                        PROVIDE (__load_stop_asmbeforeInventoryUpdateHooks = (LOADADDR (.asmbeforeInventoryUpdateHooks) + SIZEOF (.asmbeforeInventoryUpdateHooks)))
 
 .asmbeforePauseMenuUpdateHooks
-                0x8000a91c    0x2e1ec load address 0x80130688
-                0x80038b04                        . = (. + 0x2e1e8)
- *fill*         0x8000a91c    0x2e1e8 
+                0x8000b0b8    0x2da50 load address 0x8012d8e0
+                0x80038b04                        . = (. + 0x2da4c)
+ *fill*         0x8000b0b8    0x2da4c 
  asm/beforePauseMenuUpdateHook.o(.text*)
  .text          0x80038b04        0x4 asm/beforePauseMenuUpdateHook.o
  asm/beforePauseMenuUpdateHook.o(.rodata*)
@@ -285,13 +285,13 @@ LOAD src/menu_hooks.o
  .bss           0x80038b08        0x0 asm/beforePauseMenuUpdateHook.o
  asm/beforePauseMenuUpdateHook.o(.ctors)
                 0x80038b08                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmbeforePauseMenuUpdateHooks = LOADADDR (.asmbeforePauseMenuUpdateHooks))
                 [!provide]                        PROVIDE (__load_stop_asmbeforePauseMenuUpdateHooks = (LOADADDR (.asmbeforePauseMenuUpdateHooks) + SIZEOF (.asmbeforePauseMenuUpdateHooks)))
 
-.asmquitGames   0x8000a91c    0x28884 load address 0x8015e874
-                0x80033198                        . = (. + 0x2887c)
- *fill*         0x8000a91c    0x2887c 
+.asmquitGames   0x8000b0b8    0x280e8 load address 0x8015b330
+                0x80033198                        . = (. + 0x280e0)
+ *fill*         0x8000b0b8    0x280e0 
  asm/quitGame.o(.text*)
  .text          0x80033198        0x8 asm/quitGame.o
  asm/quitGame.o(.rodata*)
@@ -303,14 +303,14 @@ LOAD src/menu_hooks.o
  .bss           0x800331a0        0x0 asm/quitGame.o
  asm/quitGame.o(.ctors)
                 0x800331a0                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmquitGames = LOADADDR (.asmquitGames))
                 [!provide]                        PROVIDE (__load_stop_asmquitGames = (LOADADDR (.asmquitGames) + SIZEOF (.asmquitGames)))
 
 .asmmenuTextHooks
-                0x8000a91c    0x16588 load address 0x801870f8
-                0x80020ea0                        . = (. + 0x16584)
- *fill*         0x8000a91c    0x16584 
+                0x8000b0b8    0x15dec load address 0x80183418
+                0x80020ea0                        . = (. + 0x15de8)
+ *fill*         0x8000b0b8    0x15de8 
  asm/menuTextHook.o(.text*)
  .text          0x80020ea0        0x4 asm/menuTextHook.o
  asm/menuTextHook.o(.rodata*)
@@ -322,14 +322,14 @@ LOAD src/menu_hooks.o
  .bss           0x80020ea4        0x0 asm/menuTextHook.o
  asm/menuTextHook.o(.ctors)
                 0x80020ea4                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmmenuTextHooks = LOADADDR (.asmmenuTextHooks))
                 [!provide]                        PROVIDE (__load_stop_asmmenuTextHooks = (LOADADDR (.asmmenuTextHooks) + SIZEOF (.asmmenuTextHooks)))
 
 .asmbeforeMenuTextHooks
-                0x8000a91c    0x19554 load address 0x8019d680
-                0x80023e6c                        . = (. + 0x19550)
- *fill*         0x8000a91c    0x19550 
+                0x8000b0b8    0x18db8 load address 0x80199204
+                0x80023e6c                        . = (. + 0x18db4)
+ *fill*         0x8000b0b8    0x18db4 
  asm/beforeMenuTextHook.o(.text*)
  .text          0x80023e6c        0x4 asm/beforeMenuTextHook.o
  asm/beforeMenuTextHook.o(.rodata*)
@@ -341,14 +341,14 @@ LOAD src/menu_hooks.o
  .bss           0x80023e70        0x0 asm/beforeMenuTextHook.o
  asm/beforeMenuTextHook.o(.ctors)
                 0x80023e70                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmbeforeMenuTextHooks = LOADADDR (.asmbeforeMenuTextHooks))
                 [!provide]                        PROVIDE (__load_stop_asmbeforeMenuTextHooks = (LOADADDR (.asmbeforeMenuTextHooks) + SIZEOF (.asmbeforeMenuTextHooks)))
 
 .asmbeforeDeathHooks
-                0x8000a91c    0x45218 load address 0x801b6bd4
-                0x8004fb30                        . = (. + 0x45214)
- *fill*         0x8000a91c    0x45214 
+                0x8000b0b8    0x44a7c load address 0x801b1fbc
+                0x8004fb30                        . = (. + 0x44a78)
+ *fill*         0x8000b0b8    0x44a78 
  asm/beforeDeathHook.o(.text*)
  .text          0x8004fb30        0x4 asm/beforeDeathHook.o
  asm/beforeDeathHook.o(.rodata*)
@@ -360,14 +360,14 @@ LOAD src/menu_hooks.o
  .bss           0x8004fb34        0x0 asm/beforeDeathHook.o
  asm/beforeDeathHook.o(.ctors)
                 0x8004fb34                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmbeforeDeathHooks = LOADADDR (.asmbeforeDeathHooks))
                 [!provide]                        PROVIDE (__load_stop_asmbeforeDeathHooks = (LOADADDR (.asmbeforeDeathHooks) + SIZEOF (.asmbeforeDeathHooks)))
 
 .asmdontDrawText1_pals
-                0x8000a91c    0x18d4c load address 0x801fbdec
-                0x80023660                        . = (. + 0x18d44)
- *fill*         0x8000a91c    0x18d44 
+                0x8000b0b8    0x185b0 load address 0x801f6a38
+                0x80023660                        . = (. + 0x185a8)
+ *fill*         0x8000b0b8    0x185a8 
  asm/dontDrawText1_pal.o(.text*)
  .text          0x80023660        0x8 asm/dontDrawText1_pal.o
  asm/dontDrawText1_pal.o(.rodata*)
@@ -379,14 +379,14 @@ LOAD src/menu_hooks.o
  .bss           0x80023668        0x0 asm/dontDrawText1_pal.o
  asm/dontDrawText1_pal.o(.ctors)
                 0x80023668                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmdontDrawText1_pals = LOADADDR (.asmdontDrawText1_pals))
                 [!provide]                        PROVIDE (__load_stop_asmdontDrawText1_pals = (LOADADDR (.asmdontDrawText1_pals) + SIZEOF (.asmdontDrawText1_pals)))
 
 .asmdontDrawText2_pals
-                0x8000a91c    0x18dbc load address 0x80214b38
-                0x800236d0                        . = (. + 0x18db4)
- *fill*         0x8000a91c    0x18db4 
+                0x8000b0b8    0x18620 load address 0x8020efe8
+                0x800236d0                        . = (. + 0x18618)
+ *fill*         0x8000b0b8    0x18618 
  asm/dontDrawText2_pal.o(.text*)
  .text          0x800236d0        0x8 asm/dontDrawText2_pal.o
  asm/dontDrawText2_pal.o(.rodata*)
@@ -398,14 +398,14 @@ LOAD src/menu_hooks.o
  .bss           0x800236d8        0x0 asm/dontDrawText2_pal.o
  asm/dontDrawText2_pal.o(.ctors)
                 0x800236d8                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmdontDrawText2_pals = LOADADDR (.asmdontDrawText2_pals))
                 [!provide]                        PROVIDE (__load_stop_asmdontDrawText2_pals = (LOADADDR (.asmdontDrawText2_pals) + SIZEOF (.asmdontDrawText2_pals)))
 
 .asmdisableChargeSound_pals
-                0x8000a91c    0x39c08 load address 0x8022d8f4
-                0x8004451c                        . = (. + 0x39c00)
- *fill*         0x8000a91c    0x39c00 
+                0x8000b0b8    0x3946c load address 0x80227608
+                0x8004451c                        . = (. + 0x39464)
+ *fill*         0x8000b0b8    0x39464 
  asm/disableChargeSound_pal.o(.text*)
  .text          0x8004451c        0x8 asm/disableChargeSound_pal.o
  asm/disableChargeSound_pal.o(.rodata*)
@@ -417,14 +417,14 @@ LOAD src/menu_hooks.o
  .bss           0x80044524        0x0 asm/disableChargeSound_pal.o
  asm/disableChargeSound_pal.o(.ctors)
                 0x80044524                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmdisableChargeSound_pals = LOADADDR (.asmdisableChargeSound_pals))
                 [!provide]                        PROVIDE (__load_stop_asmdisableChargeSound_pals = (LOADADDR (.asmdisableChargeSound_pals) + SIZEOF (.asmdisableChargeSound_pals)))
 
 .asmoverwriteRawInputss
-                0x8000a91c    0x63d04 load address 0x802674fc
-                0x8006e618                        . = (. + 0x63cfc)
- *fill*         0x8000a91c    0x63cfc 
+                0x8000b0b8    0x63568 load address 0x80260a74
+                0x8006e618                        . = (. + 0x63560)
+ *fill*         0x8000b0b8    0x63560 
  asm/overwriteRawInputs.o(.text*)
  .text          0x8006e618        0x8 asm/overwriteRawInputs.o
  asm/overwriteRawInputs.o(.rodata*)
@@ -436,14 +436,14 @@ LOAD src/menu_hooks.o
  .bss           0x8006e620        0x0 asm/overwriteRawInputs.o
  asm/overwriteRawInputs.o(.ctors)
                 0x8006e620                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmoverwriteRawInputss = LOADADDR (.asmoverwriteRawInputss))
                 [!provide]                        PROVIDE (__load_stop_asmoverwriteRawInputss = (LOADADDR (.asmoverwriteRawInputss) + SIZEOF (.asmoverwriteRawInputss)))
 
 .asmexitLevelHooks
-                0x8000a91c    0x291a8 load address 0x802cb200
-                0x80033abc                        . = (. + 0x291a0)
- *fill*         0x8000a91c    0x291a0 
+                0x8000b0b8    0x28a0c load address 0x802c3fdc
+                0x80033abc                        . = (. + 0x28a04)
+ *fill*         0x8000b0b8    0x28a04 
  asm/exitLevelHook.o(.text*)
  .text          0x80033abc        0x8 asm/exitLevelHook.o
  asm/exitLevelHook.o(.rodata*)
@@ -455,14 +455,14 @@ LOAD src/menu_hooks.o
  .bss           0x80033ac4        0x0 asm/exitLevelHook.o
  asm/exitLevelHook.o(.ctors)
                 0x80033ac4                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmexitLevelHooks = LOADADDR (.asmexitLevelHooks))
                 [!provide]                        PROVIDE (__load_stop_asmexitLevelHooks = (LOADADDR (.asmexitLevelHooks) + SIZEOF (.asmexitLevelHooks)))
 
 .asmstopSoundHooks
-                0x8000a91c    0x26d48 load address 0x802f43a8
-                0x80031660                        . = (. + 0x26d44)
- *fill*         0x8000a91c    0x26d44 
+                0x8000b0b8    0x265ac load address 0x802ec9e8
+                0x80031660                        . = (. + 0x265a8)
+ *fill*         0x8000b0b8    0x265a8 
  asm/stopSoundHook.o(.text*)
  .text          0x80031660        0x4 asm/stopSoundHook.o
  asm/stopSoundHook.o(.rodata*)
@@ -474,14 +474,14 @@ LOAD src/menu_hooks.o
  .bss           0x80031664        0x0 asm/stopSoundHook.o
  asm/stopSoundHook.o(.ctors)
                 0x80031664                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmstopSoundHooks = LOADADDR (.asmstopSoundHooks))
                 [!provide]                        PROVIDE (__load_stop_asmstopSoundHooks = (LOADADDR (.asmstopSoundHooks) + SIZEOF (.asmstopSoundHooks)))
 
 .asmstopSoundHook2s
-                0x8000a91c    0x2da8c load address 0x8031b0f0
-                0x800383a4                        . = (. + 0x2da88)
- *fill*         0x8000a91c    0x2da88 
+                0x8000b0b8    0x2d2f0 load address 0x80312f94
+                0x800383a4                        . = (. + 0x2d2ec)
+ *fill*         0x8000b0b8    0x2d2ec 
  asm/stopSoundHook2.o(.text*)
  .text          0x800383a4        0x4 asm/stopSoundHook2.o
  asm/stopSoundHook2.o(.rodata*)
@@ -493,13 +493,13 @@ LOAD src/menu_hooks.o
  .bss           0x800383a8        0x0 asm/stopSoundHook2.o
  asm/stopSoundHook2.o(.ctors)
                 0x800383a8                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmstopSoundHook2s = LOADADDR (.asmstopSoundHook2s))
                 [!provide]                        PROVIDE (__load_stop_asmstopSoundHook2s = (LOADADDR (.asmstopSoundHook2s) + SIZEOF (.asmstopSoundHook2s)))
 
-.asmfairyFixs   0x8000a91c    0x2742c load address 0x80348b7c
-                0x80031d3c                        . = (. + 0x27420)
- *fill*         0x8000a91c    0x27420 
+.asmfairyFixs   0x8000b0b8    0x26c90 load address 0x80340284
+                0x80031d3c                        . = (. + 0x26c84)
+ *fill*         0x8000b0b8    0x26c84 
  asm/fairyFix.o(.text*)
  .text          0x80031d3c        0xc asm/fairyFix.o
  asm/fairyFix.o(.rodata*)
@@ -511,294 +511,47 @@ LOAD src/menu_hooks.o
  .bss           0x80031d48        0x0 asm/fairyFix.o
  asm/fairyFix.o(.ctors)
                 0x80031d48                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
+                0x8006c880                        __ovr_end = .
                 [!provide]                        PROVIDE (__load_start_asmfairyFixs = LOADADDR (.asmfairyFixs))
                 [!provide]                        PROVIDE (__load_stop_asmfairyFixs = (LOADADDR (.asmfairyFixs) + SIZEOF (.asmfairyFixs)))
 
-.TitleScreen    0x8000a91c      0x7a0 load address 0x8036ffa8
+.Header         0x8000b0b8      0x7a0 load address 0x80366f14
  src/custom_title_screen.o(.text*)
- .text          0x8000a91c        0x0 src/custom_title_screen.o
+ .text          0x8000b0b8        0x0 src/custom_title_screen.o
  .text.boolToAscii
-                0x8000a91c       0x20 src/custom_title_screen.o
-                0x8000a91c                boolToAscii
+                0x8000b0b8       0x20 src/custom_title_screen.o
+                0x8000b0b8                boolToAscii
  .text.CustomTitleScreen
-                0x8000a93c      0x758 src/custom_title_screen.o
-                0x8000a93c                CustomTitleScreen
+                0x8000b0d8      0x758 src/custom_title_screen.o
+                0x8000b0d8                CustomTitleScreen
  src/custom_title_screen.o(.rodata*)
  src/custom_title_screen.o(.sdata*)
- .sdata         0x8000b094       0x18 src/custom_title_screen.o
-                0x8000b094                asciiFalse
-                0x8000b098                asciiTrue
-                0x8000b09c                modDefaultOptions
-                0x8000b0a0                modOptions
-                0x8000b0a4                customMenuColorArray
+ .sdata         0x8000b830       0x18 src/custom_title_screen.o
+                0x8000b830                asciiFalse
+                0x8000b834                asciiTrue
+                0x8000b838                modDefaultOptions
+                0x8000b83c                modOptions
+                0x8000b840                customMenuColorArray
  src/custom_title_screen.o(.data*)
- .data          0x8000b0ac        0x0 src/custom_title_screen.o
+ .data          0x8000b848        0x0 src/custom_title_screen.o
  src/custom_title_screen.o(.sbss*)
- .sbss          0x8000b0ac       0x10 src/custom_title_screen.o
-                0x8000b0ac                customMenuSelectionColorFrames
-                0x8000b0b0                customMenuSelection
-                0x8000b0b4                customMenuState
-                0x8000b0b8                mod_state
+ .sbss          0x8000b848       0x10 src/custom_title_screen.o
+                0x8000b848                customMenuSelectionColorFrames
+                0x8000b84c                customMenuSelection
+                0x8000b850                customMenuState
+                0x8000b854                mod_state
  src/custom_title_screen.o(.bss*)
- .bss           0x8000b0bc        0x0 src/custom_title_screen.o
+ .bss           0x8000b858        0x0 src/custom_title_screen.o
  src/custom_title_screen.o(.ctors)
-                0x8000b0bc                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
-                [!provide]                        PROVIDE (__load_start_TitleScreen = LOADADDR (.TitleScreen))
-                [!provide]                        PROVIDE (__load_stop_TitleScreen = (LOADADDR (.TitleScreen) + SIZEOF (.TitleScreen)))
+                0x8000b858                        . = ALIGN (0x4)
+                0x8006c880                        __ovr_end = .
+                [!provide]                        PROVIDE (__load_start_Header = LOADADDR (.Header))
+                [!provide]                        PROVIDE (__load_stop_Header = (LOADADDR (.Header) + SIZEOF (.Header)))
 
-.OtherStuff     0x8000a91c    0x2c554 load address 0x80370748
-                0x80036558                        . = (. + 0x2bc3c)
- *fill*         0x8000a91c    0x2bc3c 
- src/main.o(.text*)
- .text          0x80036558        0x0 src/main.o
- .text.ignoreFairy
-                0x80036558        0xc src/main.o
-                0x80036558                ignoreFairy
- .text.MainFunc
-                0x80036564       0x2c src/main.o
-                0x80036564                MainFunc
- src/supercharge.o(.text*)
- .text          0x80036590        0x0 src/supercharge.o
- .text.setDefaultOffset
-                0x80036590       0x60 src/supercharge.o
-                0x80036590                setDefaultOffset
- .text.IsInAnySuperchargeSubState
-                0x800365f0       0x4c src/supercharge.o
-                0x800365f0                IsInAnySuperchargeSubState
- .text.IsInAnyFlyingState
-                0x8003663c       0x18 src/supercharge.o
-                0x8003663c                IsInAnyFlyingState
- .text.SuperchargeUpdate
-                0x80036654      0x5cc src/supercharge.o
-                0x80036654                SuperchargeUpdate
- .text.SharpTurning
-                0x80036c20      0x194 src/supercharge.o
-                0x80036c20                SharpTurning
- src/main.o(.rodata*)
- src/supercharge.o(.rodata*)
- src/main.o(.sdata*)
- src/supercharge.o(.sdata*)
- .sdata         0x80036db4        0x4 src/supercharge.o
-                0x80036db4                defaultOffset
- src/main.o(.data*)
- .data          0x80036db8        0x0 src/main.o
- src/supercharge.o(.data*)
- .data          0x80036db8       0xa0 src/supercharge.o
-                0x80036db8                levelHeightCaps
- src/main.o(.sbss*)
- src/supercharge.o(.sbss*)
- .sbss          0x80036e58       0x18 src/supercharge.o
-                0x80036e58                chargeTransitionTime
-                0x80036e5c                chargeTransitionMomentum
-                0x80036e60                chargeTransitionMomentumStart
-                0x80036e64                superchargeHeightStartedOffset
-                0x80036e68                lootFirstHeightcap
-                0x80036e69                xButtonDurationInterval
-                0x80036e6a                xButtonDuration
-                0x80036e6b                xButtonFlag
-                0x80036e6c                chargeTransitionFlag
-                0x80036e6d                sharpTurnFlag
-                0x80036e6e                newTriangleDrop
-                0x80036e6f                isSupercharging
- src/main.o(.bss*)
- .bss           0x80036e70        0x0 src/main.o
- src/supercharge.o(.bss*)
- .bss           0x80036e70        0x0 src/supercharge.o
- src/main.o(.ctors)
- src/supercharge.o(.ctors)
-                0x80036e70                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
-                [!provide]                        PROVIDE (__load_start_OtherStuff = LOADADDR (.OtherStuff))
-                [!provide]                        PROVIDE (__load_stop_OtherStuff = (LOADADDR (.OtherStuff) + SIZEOF (.OtherStuff)))
-
-.IGT            0x8000a91c    0x18314 load address 0x8039cc9c
-                0x80022058                        . = (. + 0x1773c)
- *fill*         0x8000a91c    0x1773c 
- src/gametime.o(.text*)
- .text          0x80022058        0x0 src/gametime.o
- .text.getCurrentIGT
-                0x80022058      0x2ac src/gametime.o
-                0x80022058                getCurrentIGT
- .text.colonOffset
-                0x80022304       0x54 src/gametime.o
-                0x80022304                colonOffset
- .text.DrawIGT  0x80022358      0x278 src/gametime.o
-                0x80022358                DrawIGT
- .text.GameTime
-                0x800225d0      0x300 src/gametime.o
-                0x800225d0                GameTime
- src/custom_text.o(.text*)
- .text          0x800228d0        0x0 src/custom_text.o
- .text.MobyRender
-                0x800228d0       0x50 src/custom_text.o
-                0x800228d0                MobyRender
- src/gametime.o(.rodata*)
- .rodata.str1.4
-                0x80022920      0x247 src/gametime.o
-                                 0x9e (size before relaxing)
- src/custom_text.o(.rodata*)
- .rodata.str1.4
-                0x80022b67      0x1b3 src/custom_text.o
- src/gametime.o(.sdata*)
- src/custom_text.o(.sdata*)
- src/gametime.o(.data*)
- *fill*         0x80022b67        0x1 
- .data          0x80022b68        0xc src/gametime.o
-                0x80022b68                gameTimeStrings
- src/custom_text.o(.data*)
- .data          0x80022b74       0x80 src/custom_text.o
-                0x80022b74                stringList
- src/gametime.o(.sbss*)
- .sbss          0x80022bf4       0x20 src/gametime.o
-                0x80022bf4                timerArray
-                0x80022bfc                hideGameTime
-                0x80022c00                alignmentOffset
-                0x80022c01                calibrationInfoTimer
-                0x80022c02                sharpTurnOffset
-                0x80022c04                customLootTimer
-                0x80022c08                currentLevel
-                0x80022c0c                levelGameTime
-                0x80022c10                totalGameTime
- src/custom_text.o(.sbss*)
- src/gametime.o(.bss*)
- .bss           0x80022c14       0x1c src/gametime.o
-                0x80022c14                asciiTime
-                0x80022c20                sharpTurnInfo
- src/custom_text.o(.bss*)
- .bss           0x80022c30        0x0 src/custom_text.o
- src/gametime.o(.ctors)
- src/custom_text.o(.ctors)
-                0x80022c30                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
-                [!provide]                        PROVIDE (__load_start_IGT = LOADADDR (.IGT))
-                [!provide]                        PROVIDE (__load_stop_IGT = (LOADADDR (.IGT) + SIZEOF (.IGT)))
-
-.IL             0x8000a91c    0x62770 load address 0x803b4fb0
-                0x8006bcb4                        . = (. + 0x61398)
- *fill*         0x8000a91c    0x61398 
- src/misc_functions.o(.text*)
- .text          0x8006bcb4        0x0 src/misc_functions.o
- .text.UndoInventoryChanges
-                0x8006bcb4       0x58 src/misc_functions.o
-                0x8006bcb4                UndoInventoryChanges
- .text.PreventStopSound
-                0x8006bd0c        0x8 src/misc_functions.o
-                0x8006bd0c                PreventStopSound
- .text.PreventStopSoundCutscene
-                0x8006bd14       0x2c src/misc_functions.o
-                0x8006bd14                PreventStopSoundCutscene
- .text.SkipIntro
-                0x8006bd40      0x140 src/misc_functions.o
-                0x8006bd40                SkipIntro
- .text.LoadIGTMenu
-                0x8006be80      0x16c src/misc_functions.o
-                0x8006be80                LoadIGTMenu
- .text.BeforeDeath
-                0x8006bfec       0x88 src/misc_functions.o
-                0x8006bfec                BeforeDeath
- .text.PrepareWarping
-                0x8006c074       0x54 src/misc_functions.o
-                0x8006c074                PrepareWarping
- .text.LoadCustomTitleScreen
-                0x8006c0c8       0x4c src/misc_functions.o
-                0x8006c0c8                LoadCustomTitleScreen
- .text.ReturnToCustomTitleScreen
-                0x8006c114       0x64 src/misc_functions.o
-                0x8006c114                ReturnToCustomTitleScreen
- .text.ResetLevelCollectables
-                0x8006c178       0x94 src/misc_functions.o
-                0x8006c178                ResetLevelCollectables
- .text.AddVisualFlightGems
-                0x8006c20c       0x50 src/misc_functions.o
-                0x8006c20c                AddVisualFlightGems
- .text.LevelComplete
-                0x8006c25c      0x168 src/misc_functions.o
-                0x8006c25c                LevelComplete
- .text.SaveAndLoadCollectables
-                0x8006c3c4      0x2e4 src/misc_functions.o
-                0x8006c3c4                SaveAndLoadCollectables
- .text.StopDrawWorldAndObjects
-                0x8006c6a8       0x3c src/misc_functions.o
-                0x8006c6a8                StopDrawWorldAndObjects
- .text.RestartDrawWorldAndObjects
-                0x8006c6e4       0x58 src/misc_functions.o
-                0x8006c6e4                RestartDrawWorldAndObjects
- .text.NoDragonAnimation
-                0x8006c73c       0x7c src/misc_functions.o
-                0x8006c73c                NoDragonAnimation
- src/check_region.o(.text*)
- .text          0x8006c7b8        0x0 src/check_region.o
- .text.CheckRegion
-                0x8006c7b8       0x18 src/check_region.o
-                0x8006c7b8                CheckRegion
- src/misc_update.o(.text*)
- .text          0x8006c7d0        0x0 src/misc_update.o
- .text.MiscUpdate
-                0x8006c7d0      0x77c src/misc_update.o
-                0x8006c7d0                MiscUpdate
- src/misc_functions.o(.rodata*)
- .rodata.str1.4
-                0x8006cf4c        0xa src/misc_functions.o
- src/check_region.o(.rodata*)
- src/misc_update.o(.rodata*)
- src/misc_functions.o(.sdata*)
- src/check_region.o(.sdata*)
- src/misc_update.o(.sdata*)
- src/misc_functions.o(.data*)
- *fill*         0x8006cf56        0x2 
- .data          0x8006cf58        0x0 src/misc_functions.o
- src/check_region.o(.data*)
- .data          0x8006cf58        0x0 src/check_region.o
- src/misc_update.o(.data*)
- .data          0x8006cf58        0x0 src/misc_update.o
- src/misc_functions.o(.sbss*)
- .sbss          0x8006cf58        0xd src/misc_functions.o
-                0x8006cf58                guidebookDialogState
-                0x8006cf5c                previousInventoryPage
-                0x8006cf5d                realLevelIDIndex
-                0x8006cf5e                inventoryIndex
-                0x8006cf5f                warpingUnlocked
-                0x8006cf60                currentEggs
-                0x8006cf61                currentDragons
-                0x8006cf62                currentGems
-                0x8006cf64                soundEffectDuration
- src/check_region.o(.sbss*)
- src/misc_update.o(.sbss*)
- *fill*         0x8006cf65        0x3 
- .sbss          0x8006cf68       0x16 src/misc_update.o
-                0x8006cf68                madeDragonsInstant
-                0x8006cf6c                currentFlightCollectableFlags
-                0x8006cf74                startLevel
-                0x8006cf78                seenFlightCollectables
-                0x8006cf79                newBestTime
-                0x8006cf7a                IGTpage
-                0x8006cf7b                timeTrialFailedReason
-                0x8006cf7c                endingType
-                0x8006cf7d                gnastyTimer
- src/misc_functions.o(.bss*)
- *fill*         0x8006cf7e        0x2 
- .bss           0x8006cf80      0x10c src/misc_functions.o
-                0x8006cf80                collectedEggsPerLevel
-                0x8006cf94                collectedDragonsPerLevel
-                0x8006cfb8                collectedGemsPerLevel
-                0x8006d000                bestTimes
- src/check_region.o(.bss*)
- .bss           0x8006d08c        0x0 src/check_region.o
- src/misc_update.o(.bss*)
- .bss           0x8006d08c        0x0 src/misc_update.o
- src/misc_functions.o(.ctors)
- src/check_region.o(.ctors)
- src/misc_update.o(.ctors)
-                0x8006d08c                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
-                [!provide]                        PROVIDE (__load_start_IL = LOADADDR (.IL))
-                [!provide]                        PROVIDE (__load_stop_IL = (LOADADDR (.IL) + SIZEOF (.IL)))
-
-.Misc           0x8000a91c    0x2b0a0 load address 0x80417720
-                0x800980b8                        . = (. + 0x29a98)
- *fill*         0x8000a91c    0x29a98 
+.DragonAndFairyUpdate
+                0x8000b0b8    0x2b350 load address 0x803676b4
+                0x800343b4                        . = (. + 0x292fc)
+ *fill*         0x8000b0b8    0x292fc 
  src/menu_hooks.o(.text*)
  .text          0x800343b4        0x0 src/menu_hooks.o
  .text.OpenInventoryHook
@@ -814,42 +567,286 @@ LOAD src/menu_hooks.o
                 0x800350a8       0x8c src/menu_hooks.o
                 0x800350a8                BeforePauseMenuUpdate
  .text.BeforeInventoryUpdate
-                0x80035134      0x730 src/menu_hooks.o
+                0x80035134      0x6c0 src/menu_hooks.o
                 0x80035134                BeforeInventoryUpdate
  .text.QuitSpeedway
-                0x80035864       0x40 src/menu_hooks.o
-                0x80035864                QuitSpeedway
+                0x800357f4       0x40 src/menu_hooks.o
+                0x800357f4                QuitSpeedway
  .text.BeforeCheatCode
-                0x800358a4       0x80 src/menu_hooks.o
-                0x800358a4                BeforeCheatCode
+                0x80035834       0x80 src/menu_hooks.o
+                0x80035834                BeforeCheatCode
  .text.InventoryToPause
-                0x80035924       0x28 src/menu_hooks.o
-                0x80035924                InventoryToPause
+                0x800358b4       0x28 src/menu_hooks.o
+                0x800358b4                InventoryToPause
  .text.InventoryToGameplayHook
-                0x8003594c       0x1c src/menu_hooks.o
-                0x8003594c                InventoryToGameplayHook
+                0x800358dc       0x1c src/menu_hooks.o
+                0x800358dc                InventoryToGameplayHook
  .text.InventoryToCredits
-                0x80035968       0x28 src/menu_hooks.o
-                0x80035968                InventoryToCredits
+                0x800358f8       0x28 src/menu_hooks.o
+                0x800358f8                InventoryToCredits
+ src/main.o(.text*)
+ .text          0x80035920        0x0 src/main.o
+ .text.ignoreFairy
+                0x80035920        0xc src/main.o
+                0x80035920                ignoreFairy
+ .text.MainFunc
+                0x8003592c       0x2c src/main.o
+                0x8003592c                MainFunc
+ src/supercharge.o(.text*)
+ .text          0x80035958        0x0 src/supercharge.o
+ .text.setDefaultOffset
+                0x80035958       0x60 src/supercharge.o
+                0x80035958                setDefaultOffset
+ .text.IsInAnySuperchargeSubState
+                0x800359b8       0x4c src/supercharge.o
+                0x800359b8                IsInAnySuperchargeSubState
+ .text.IsInAnyFlyingState
+                0x80035a04       0x18 src/supercharge.o
+                0x80035a04                IsInAnyFlyingState
+ .text.SuperchargeUpdate
+                0x80035a1c      0x760 src/supercharge.o
+                0x80035a1c                SuperchargeUpdate
+ .text.SharpTurning
+                0x8003617c      0x194 src/supercharge.o
+                0x8003617c                SharpTurning
  src/menu_hooks.o(.rodata*)
+ src/main.o(.rodata*)
+ src/supercharge.o(.rodata*)
+ .rodata.str1.4
+                0x80036310        0x9 src/supercharge.o
  src/menu_hooks.o(.sdata*)
+ src/main.o(.sdata*)
+ src/supercharge.o(.sdata*)
+ *fill*         0x80036319        0x3 
+ .sdata         0x8003631c        0x4 src/supercharge.o
+                0x8003631c                defaultOffset
  src/menu_hooks.o(.data*)
- .data          0x80035990       0x23 src/menu_hooks.o
-                0x80035990                levelStringXPosition
+ .data          0x80036320       0x23 src/menu_hooks.o
+                0x80036320                levelStringXPosition
+ src/main.o(.data*)
+ *fill*         0x80036343        0x1 
+ .data          0x80036344        0x0 src/main.o
+ src/supercharge.o(.data*)
+ .data          0x80036344       0xa0 src/supercharge.o
+                0x80036344                levelHeightCaps
  src/menu_hooks.o(.sbss*)
- *fill*         0x800359b3        0x1 
- .sbss          0x800359b4        0x6 src/menu_hooks.o
-                0x800359b4                warpLevelID
-                0x800359b8                selectedQuitGame
-                0x800359b9                warping
+ .sbss          0x800363e4        0x6 src/menu_hooks.o
+                0x800363e4                warpLevelID
+                0x800363e8                selectedQuitGame
+                0x800363e9                warping
+ src/main.o(.sbss*)
+ src/supercharge.o(.sbss*)
+ *fill*         0x800363ea        0x2 
+ .sbss          0x800363ec       0x1c src/supercharge.o
+                0x800363ec                previousSpyroState
+                0x800363f0                chargeTransitionTime
+                0x800363f4                chargeTransitionMomentum
+                0x800363f8                chargeTransitionMomentumStart
+                0x800363fc                superchargeHeightStartedOffset
+                0x80036400                lootFirstHeightcap
+                0x80036401                xButtonDurationInterval
+                0x80036402                xButtonDuration
+                0x80036403                xButtonFlag
+                0x80036404                chargeTransitionFlag
+                0x80036405                sharpTurnFlag
+                0x80036406                newTriangleDrop
+                0x80036407                isSupercharging
  src/menu_hooks.o(.bss*)
- *fill*         0x800359ba        0x2 
- .bss           0x800359bc        0x0 src/menu_hooks.o
+ .bss           0x80036408        0x0 src/menu_hooks.o
+ src/main.o(.bss*)
+ .bss           0x80036408        0x0 src/main.o
+ src/supercharge.o(.bss*)
+ .bss           0x80036408        0x0 src/supercharge.o
  src/menu_hooks.o(.ctors)
-                0x800359bc                        . = ALIGN (0x4)
-                0x800359bc                        __ovr_end = .
-                [!provide]                        PROVIDE (__load_start_Misc = LOADADDR (.Misc))
-                [!provide]                        PROVIDE (__load_stop_Misc = (LOADADDR (.Misc) + SIZEOF (.Misc)))
+ src/main.o(.ctors)
+ src/supercharge.o(.ctors)
+                0x80036408                        . = ALIGN (0x4)
+                0x8006c880                        __ovr_end = .
+                [!provide]                        PROVIDE (__load_start_DragonAndFairyUpdate = LOADADDR (.DragonAndFairyUpdate))
+                [!provide]                        PROVIDE (__load_stop_DragonAndFairyUpdate = (LOADADDR (.DragonAndFairyUpdate) + SIZEOF (.DragonAndFairyUpdate)))
+
+.DrawDragonAndFairyText
+                0x8000b0b8    0x17d08 load address 0x80392a04
+                0x8002191c                        . = (. + 0x16864)
+ *fill*         0x8000b0b8    0x16864 
+ src/misc_update.o(.text*)
+ .text          0x8002191c        0x0 src/misc_update.o
+ .text.MiscUpdate
+                0x8002191c      0x848 src/misc_update.o
+                0x8002191c                MiscUpdate
+ src/custom_text.o(.text*)
+ .text          0x80022164        0x0 src/custom_text.o
+ .text.MobyRender
+                0x80022164       0x50 src/custom_text.o
+                0x80022164                MobyRender
+ src/gametime.o(.text*)
+ .text          0x800221b4        0x0 src/gametime.o
+ .text.getCurrentIGT
+                0x800221b4      0x2ac src/gametime.o
+                0x800221b4                getCurrentIGT
+ .text.colonOffset
+                0x80022460       0x54 src/gametime.o
+                0x80022460                colonOffset
+ .text.DrawIGT  0x800224b4      0x278 src/gametime.o
+                0x800224b4                DrawIGT
+ .text.GameTime
+                0x8002272c      0x360 src/gametime.o
+                0x8002272c                GameTime
+ src/misc_update.o(.rodata*)
+ src/custom_text.o(.rodata*)
+ .rodata.str1.4
+                0x80022a8c      0x24a src/custom_text.o
+                                0x1b3 (size before relaxing)
+ src/gametime.o(.rodata*)
+ .rodata.str1.4
+                0x80022cd6       0x9e src/gametime.o
+ src/misc_update.o(.sdata*)
+ src/custom_text.o(.sdata*)
+ src/gametime.o(.sdata*)
+ src/misc_update.o(.data*)
+ *fill*         0x80022cd6        0x2 
+ .data          0x80022cd8        0x0 src/misc_update.o
+ src/custom_text.o(.data*)
+ .data          0x80022cd8       0x80 src/custom_text.o
+                0x80022cd8                stringList
+ src/gametime.o(.data*)
+ .data          0x80022d58        0xc src/gametime.o
+                0x80022d58                gameTimeStrings
+ src/misc_update.o(.sbss*)
+ .sbss          0x80022d64       0x16 src/misc_update.o
+                0x80022d64                madeDragonsInstant
+                0x80022d68                currentFlightCollectableFlags
+                0x80022d70                startLevel
+                0x80022d74                seenFlightCollectables
+                0x80022d75                newBestTime
+                0x80022d76                IGTpage
+                0x80022d77                timeTrialFailedReason
+                0x80022d78                endingType
+                0x80022d79                gnastyTimer
+ src/custom_text.o(.sbss*)
+ src/gametime.o(.sbss*)
+ *fill*         0x80022d7a        0x2 
+ .sbss          0x80022d7c       0x28 src/gametime.o
+                0x80022d7c                timerArray
+                0x80022d84                hideGameTime
+                0x80022d88                alignmentOffset
+                0x80022d89                calibrationInfoTimer
+                0x80022d8a                sharpTurnOffset
+                0x80022d8c                completionFlags
+                0x80022d94                customLootTimer
+                0x80022d98                currentLevel
+                0x80022d9c                levelGameTime
+                0x80022da0                totalGameTime
+ src/misc_update.o(.bss*)
+ .bss           0x80022da4        0x0 src/misc_update.o
+ src/custom_text.o(.bss*)
+ .bss           0x80022da4        0x0 src/custom_text.o
+ src/gametime.o(.bss*)
+ .bss           0x80022da4       0x1c src/gametime.o
+                0x80022da4                asciiTime
+                0x80022db0                sharpTurnInfo
+ src/misc_update.o(.ctors)
+ src/custom_text.o(.ctors)
+ src/gametime.o(.ctors)
+                0x80022dc0                        . = ALIGN (0x4)
+                0x8006c880                        __ovr_end = .
+                [!provide]                        PROVIDE (__load_start_DrawDragonAndFairyText = LOADADDR (.DrawDragonAndFairyText))
+                [!provide]                        PROVIDE (__load_stop_DrawDragonAndFairyText = (LOADADDR (.DrawDragonAndFairyText) + SIZEOF (.DrawDragonAndFairyText)))
+
+.MemoryCardArea
+                0x8000b0b8    0x617c8 load address 0x803aa70c
+                0x800cf21c                        . = (. + 0x60bfc)
+ *fill*         0x8000b0b8    0x60bfc 
+ src/check_region.o(.text*)
+ .text          0x8006bcb4        0x0 src/check_region.o
+ .text.CheckRegion
+                0x8006bcb4       0x18 src/check_region.o
+                0x8006bcb4                CheckRegion
+ src/misc_functions.o(.text*)
+ .text          0x8006bccc        0x0 src/misc_functions.o
+ .text.UndoInventoryChanges
+                0x8006bccc       0x58 src/misc_functions.o
+                0x8006bccc                UndoInventoryChanges
+ .text.PreventStopSound
+                0x8006bd24        0x8 src/misc_functions.o
+                0x8006bd24                PreventStopSound
+ .text.PreventStopSoundCutscene
+                0x8006bd2c       0x2c src/misc_functions.o
+                0x8006bd2c                PreventStopSoundCutscene
+ .text.SkipIntro
+                0x8006bd58      0x150 src/misc_functions.o
+                0x8006bd58                SkipIntro
+ .text.LoadIGTMenu
+                0x8006bea8      0x16c src/misc_functions.o
+                0x8006bea8                LoadIGTMenu
+ .text.BeforeDeath
+                0x8006c014       0x7c src/misc_functions.o
+                0x8006c014                BeforeDeath
+ .text.PrepareWarping
+                0x8006c090       0x54 src/misc_functions.o
+                0x8006c090                PrepareWarping
+ .text.LoadCustomTitleScreen
+                0x8006c0e4       0x4c src/misc_functions.o
+                0x8006c0e4                LoadCustomTitleScreen
+ .text.ReturnToCustomTitleScreen
+                0x8006c130       0x64 src/misc_functions.o
+                0x8006c130                ReturnToCustomTitleScreen
+ .text.ResetLevelCollectables
+                0x8006c194       0x94 src/misc_functions.o
+                0x8006c194                ResetLevelCollectables
+ .text.AddVisualFlightGems
+                0x8006c228       0x50 src/misc_functions.o
+                0x8006c228                AddVisualFlightGems
+ .text.LevelComplete
+                0x8006c278      0x168 src/misc_functions.o
+                0x8006c278                LevelComplete
+ .text.SaveAndLoadCollectables
+                0x8006c3e0      0x2e4 src/misc_functions.o
+                0x8006c3e0                SaveAndLoadCollectables
+ .text.StopDrawWorldAndObjects
+                0x8006c6c4       0x3c src/misc_functions.o
+                0x8006c6c4                StopDrawWorldAndObjects
+ .text.RestartDrawWorldAndObjects
+                0x8006c700       0x58 src/misc_functions.o
+                0x8006c700                RestartDrawWorldAndObjects
+ src/check_region.o(.rodata*)
+ src/misc_functions.o(.rodata*)
+ .rodata.str1.4
+                0x8006c758        0xa src/misc_functions.o
+ src/check_region.o(.sdata*)
+ src/misc_functions.o(.sdata*)
+ src/check_region.o(.data*)
+ *fill*         0x8006c762        0x2 
+ .data          0x8006c764        0x0 src/check_region.o
+ src/misc_functions.o(.data*)
+ .data          0x8006c764        0x0 src/misc_functions.o
+ src/check_region.o(.sbss*)
+ src/misc_functions.o(.sbss*)
+ .sbss          0x8006c764        0xd src/misc_functions.o
+                0x8006c764                guidebookDialogState
+                0x8006c768                previousInventoryPage
+                0x8006c769                realLevelIDIndex
+                0x8006c76a                inventoryIndex
+                0x8006c76b                warpingUnlocked
+                0x8006c76c                currentEggs
+                0x8006c76d                currentDragons
+                0x8006c76e                currentGems
+                0x8006c770                soundEffectDuration
+ src/check_region.o(.bss*)
+ *fill*         0x8006c771        0x3 
+ .bss           0x8006c774        0x0 src/check_region.o
+ src/misc_functions.o(.bss*)
+ .bss           0x8006c774      0x10c src/misc_functions.o
+                0x8006c774                collectedEggsPerLevel
+                0x8006c788                collectedDragonsPerLevel
+                0x8006c7ac                collectedGemsPerLevel
+                0x8006c7f4                bestTimes
+ src/check_region.o(.ctors)
+ src/misc_functions.o(.ctors)
+                0x8006c880                        . = ALIGN (0x4)
+                0x8006c880                        __ovr_end = .
+                [!provide]                        PROVIDE (__load_start_MemoryCardArea = LOADADDR (.MemoryCardArea))
+                [!provide]                        PROVIDE (__load_stop_MemoryCardArea = (LOADADDR (.MemoryCardArea) + SIZEOF (.MemoryCardArea)))
                 0x80068448                        sprintf = 0x80068448
                 0x8007f3e8                        _spyro = 0x8007f3e8
                 0x8007f638                        _onSuperchargeGround = 0x8007f638
@@ -996,6 +993,21 @@ LOAD src/menu_hooks.o
                 0x8016d5b4                        _delbin = 0x8016d5b4
                 0x80081059                        _setGnexusDragonToMagnus = 0x80081059
                 0x8007c18c                        _menuTimer = 0x8007c18c
+                0x8007c110                        _flightExpirationVisualTimer = 0x8007c110
+                0x800817a0                        OpenFlightMenu = 0x800817a0
+                0x80180ab0                        _timeTrial5sNoise = 0x80180ab0
+                0x8017ae18                        _sunnyFlightTrain0 = 0x8017ae18
+                0x8017b5b8                        _sunnyFlightTrain1 = 0x8017b5b8
+                0x8017bd58                        _sunnyFlightTrain2 = 0x8017bd58
+                0x8017c4f8                        _sunnyFlightTrain3 = 0x8017c4f8
+                0x8017cc98                        _sunnyFlightTrain4 = 0x8017cc98
+                0x8017d438                        _sunnyFlightTrain5 = 0x8017d438
+                0x8017dbd8                        _sunnyFlightTrain6 = 0x8017dbd8
+                0x8017e378                        _sunnyFlightTrain7 = 0x8017e378
+                0x8017eb18                        _sunnyFlightTrain8 = 0x8017eb18
+                0x8017f2b8                        _sunnyFlightTrain9 = 0x8017f2b8
+                0x8017fa58                        _sunnyFlightTrain10 = 0x8017fa58
+                0x801801f8                        _sunnyFlightTrain11 = 0x801801f8
 OUTPUT(mod.elf elf32-littlemips)
 
 .reginfo        0x00000000       0x18
@@ -1068,153 +1080,153 @@ OUTPUT(mod.elf elf32-littlemips)
  .gnu.attributes
                 0x00000140       0x10 src/custom_title_screen.o
  .gnu.attributes
-                0x00000150       0x10 src/main.o
+                0x00000150       0x10 src/menu_hooks.o
  .gnu.attributes
-                0x00000160       0x10 src/supercharge.o
+                0x00000160       0x10 src/main.o
  .gnu.attributes
-                0x00000170       0x10 src/gametime.o
+                0x00000170       0x10 src/supercharge.o
  .gnu.attributes
-                0x00000180       0x10 src/custom_text.o
+                0x00000180       0x10 src/misc_update.o
  .gnu.attributes
-                0x00000190       0x10 src/misc_functions.o
+                0x00000190       0x10 src/custom_text.o
  .gnu.attributes
-                0x000001a0       0x10 src/check_region.o
+                0x000001a0       0x10 src/gametime.o
  .gnu.attributes
-                0x000001b0       0x10 src/misc_update.o
+                0x000001b0       0x10 src/check_region.o
  .gnu.attributes
-                0x000001c0       0x10 src/menu_hooks.o
+                0x000001c0       0x10 src/misc_functions.o
 
 .mdebug.abi32   0x00000000        0x0
  .mdebug.abi32  0x00000000        0x0 src/custom_title_screen.o
+ .mdebug.abi32  0x00000000        0x0 src/menu_hooks.o
  .mdebug.abi32  0x00000000        0x0 src/main.o
  .mdebug.abi32  0x00000000        0x0 src/supercharge.o
- .mdebug.abi32  0x00000000        0x0 src/gametime.o
- .mdebug.abi32  0x00000000        0x0 src/custom_text.o
- .mdebug.abi32  0x00000000        0x0 src/misc_functions.o
- .mdebug.abi32  0x00000000        0x0 src/check_region.o
  .mdebug.abi32  0x00000000        0x0 src/misc_update.o
- .mdebug.abi32  0x00000000        0x0 src/menu_hooks.o
+ .mdebug.abi32  0x00000000        0x0 src/custom_text.o
+ .mdebug.abi32  0x00000000        0x0 src/gametime.o
+ .mdebug.abi32  0x00000000        0x0 src/check_region.o
+ .mdebug.abi32  0x00000000        0x0 src/misc_functions.o
 
 .comment        0x00000000       0x12
  .comment       0x00000000       0x12 src/custom_title_screen.o
                                  0x13 (size before relaxing)
+ .comment       0x00000012       0x13 src/menu_hooks.o
  .comment       0x00000012       0x13 src/main.o
  .comment       0x00000012       0x13 src/supercharge.o
- .comment       0x00000012       0x13 src/gametime.o
- .comment       0x00000012       0x13 src/custom_text.o
- .comment       0x00000012       0x13 src/misc_functions.o
- .comment       0x00000012       0x13 src/check_region.o
  .comment       0x00000012       0x13 src/misc_update.o
- .comment       0x00000012       0x13 src/menu_hooks.o
+ .comment       0x00000012       0x13 src/custom_text.o
+ .comment       0x00000012       0x13 src/gametime.o
+ .comment       0x00000012       0x13 src/check_region.o
+ .comment       0x00000012       0x13 src/misc_functions.o
 
-.debug_info     0x00000000     0x6c53
+.debug_info     0x00000000     0x6633
  .debug_info    0x00000000      0x79c src/custom_title_screen.o
- .debug_info    0x0000079c      0x1a5 src/main.o
- .debug_info    0x00000941      0xf9b src/supercharge.o
- .debug_info    0x000018dc     0x134d src/gametime.o
- .debug_info    0x00002c29      0x144 src/custom_text.o
- .debug_info    0x00002d6d     0x1770 src/misc_functions.o
- .debug_info    0x000044dd       0xa5 src/check_region.o
- .debug_info    0x00004582     0x14bb src/misc_update.o
- .debug_info    0x00005a3d     0x1216 src/menu_hooks.o
+ .debug_info    0x0000079c     0x11fa src/menu_hooks.o
+ .debug_info    0x00001996      0x1a5 src/main.o
+ .debug_info    0x00001b3b     0x1221 src/supercharge.o
+ .debug_info    0x00002d5c     0x1799 src/misc_update.o
+ .debug_info    0x000044f5      0x144 src/custom_text.o
+ .debug_info    0x00004639     0x1395 src/gametime.o
+ .debug_info    0x000059ce       0xa5 src/check_region.o
+ .debug_info    0x00005a73      0xbc0 src/misc_functions.o
 
-.debug_abbrev   0x00000000     0x12c3
+.debug_abbrev   0x00000000     0x1287
  .debug_abbrev  0x00000000      0x236 src/custom_title_screen.o
- .debug_abbrev  0x00000236       0xbc src/main.o
- .debug_abbrev  0x000002f2      0x22b src/supercharge.o
- .debug_abbrev  0x0000051d      0x356 src/gametime.o
- .debug_abbrev  0x00000873      0x11c src/custom_text.o
- .debug_abbrev  0x0000098f      0x352 src/misc_functions.o
- .debug_abbrev  0x00000ce1       0x86 src/check_region.o
- .debug_abbrev  0x00000d67      0x26a src/misc_update.o
- .debug_abbrev  0x00000fd1      0x2f2 src/menu_hooks.o
+ .debug_abbrev  0x00000236      0x2f2 src/menu_hooks.o
+ .debug_abbrev  0x00000528       0xbc src/main.o
+ .debug_abbrev  0x000005e4      0x28c src/supercharge.o
+ .debug_abbrev  0x00000870      0x288 src/misc_update.o
+ .debug_abbrev  0x00000af8      0x11c src/custom_text.o
+ .debug_abbrev  0x00000c14      0x36b src/gametime.o
+ .debug_abbrev  0x00000f7f       0x86 src/check_region.o
+ .debug_abbrev  0x00001005      0x282 src/misc_functions.o
 
 .debug_loclists
-                0x00000000      0x5b9
+                0x00000000      0x5b2
  .debug_loclists
                 0x00000000       0xd8 src/custom_title_screen.o
  .debug_loclists
-                0x000000d8       0x28 src/supercharge.o
+                0x000000d8       0xf6 src/menu_hooks.o
  .debug_loclists
-                0x00000100      0x25c src/gametime.o
+                0x000001ce       0x28 src/supercharge.o
  .debug_loclists
-                0x0000035c      0x126 src/misc_functions.o
+                0x000001f6       0x6a src/misc_update.o
  .debug_loclists
-                0x00000482       0x41 src/misc_update.o
+                0x00000260      0x25c src/gametime.o
  .debug_loclists
-                0x000004c3       0xf6 src/menu_hooks.o
+                0x000004bc       0xf6 src/misc_functions.o
 
-.debug_aranges  0x00000000      0x228
+.debug_aranges  0x00000000      0x220
  .debug_aranges
                 0x00000000       0x28 src/custom_title_screen.o
  .debug_aranges
-                0x00000028       0x28 src/main.o
+                0x00000028       0x68 src/menu_hooks.o
  .debug_aranges
-                0x00000050       0x40 src/supercharge.o
+                0x00000090       0x28 src/main.o
  .debug_aranges
-                0x00000090       0x38 src/gametime.o
+                0x000000b8       0x40 src/supercharge.o
  .debug_aranges
-                0x000000c8       0x20 src/custom_text.o
+                0x000000f8       0x20 src/misc_update.o
  .debug_aranges
-                0x000000e8       0x98 src/misc_functions.o
+                0x00000118       0x20 src/custom_text.o
  .debug_aranges
-                0x00000180       0x20 src/check_region.o
+                0x00000138       0x38 src/gametime.o
  .debug_aranges
-                0x000001a0       0x20 src/misc_update.o
+                0x00000170       0x20 src/check_region.o
  .debug_aranges
-                0x000001c0       0x68 src/menu_hooks.o
+                0x00000190       0x90 src/misc_functions.o
 
 .debug_rnglists
-                0x00000000      0x2e2
+                0x00000000      0x2fc
  .debug_rnglists
                 0x00000000       0x48 src/custom_title_screen.o
  .debug_rnglists
-                0x00000048       0x19 src/main.o
+                0x00000048       0xdb src/menu_hooks.o
  .debug_rnglists
-                0x00000061       0x48 src/supercharge.o
+                0x00000123       0x19 src/main.o
  .debug_rnglists
-                0x000000a9       0x65 src/gametime.o
+                0x0000013c       0x48 src/supercharge.o
  .debug_rnglists
-                0x0000010e       0x1f src/custom_text.o
+                0x00000184       0x5a src/misc_update.o
  .debug_rnglists
-                0x0000012d       0x8e src/misc_functions.o
+                0x000001de       0x1f src/custom_text.o
  .debug_rnglists
-                0x000001bb       0x13 src/check_region.o
+                0x000001fd       0x65 src/gametime.o
  .debug_rnglists
-                0x000001ce       0x39 src/misc_update.o
+                0x00000262       0x13 src/check_region.o
  .debug_rnglists
-                0x00000207       0xdb src/menu_hooks.o
+                0x00000275       0x87 src/misc_functions.o
 
-.debug_line     0x00000000     0x3085
+.debug_line     0x00000000     0x316d
  .debug_line    0x00000000      0x54a src/custom_title_screen.o
- .debug_line    0x0000054a       0xe5 src/main.o
- .debug_line    0x0000062f      0x6ed src/supercharge.o
- .debug_line    0x00000d1c      0x5bf src/gametime.o
- .debug_line    0x000012db       0xec src/custom_text.o
- .debug_line    0x000013c7      0x8db src/misc_functions.o
- .debug_line    0x00001ca2       0xcb src/check_region.o
- .debug_line    0x00001d6d      0x5fa src/misc_update.o
- .debug_line    0x00002367      0xd1e src/menu_hooks.o
+ .debug_line    0x0000054a      0xcec src/menu_hooks.o
+ .debug_line    0x00001236       0xe5 src/main.o
+ .debug_line    0x0000131b      0x7d4 src/supercharge.o
+ .debug_line    0x00001aef      0x69c src/misc_update.o
+ .debug_line    0x0000218b       0xec src/custom_text.o
+ .debug_line    0x00002277      0x5e3 src/gametime.o
+ .debug_line    0x0000285a       0xcb src/check_region.o
+ .debug_line    0x00002925      0x848 src/misc_functions.o
 
-.debug_str      0x00000000     0x27f9
- .debug_str     0x00000000     0x27f9 src/custom_title_screen.o
+.debug_str      0x00000000     0x2836
+ .debug_str     0x00000000     0x2836 src/custom_title_screen.o
                                 0x8eb (size before relaxing)
- .debug_str     0x000027f9      0x368 src/main.o
- .debug_str     0x000027f9     0x141b src/supercharge.o
- .debug_str     0x000027f9     0x1287 src/gametime.o
- .debug_str     0x000027f9      0x210 src/custom_text.o
- .debug_str     0x000027f9     0x19be src/misc_functions.o
- .debug_str     0x000027f9      0x1d4 src/check_region.o
- .debug_str     0x000027f9     0x19dd src/misc_update.o
- .debug_str     0x000027f9      0xf45 src/menu_hooks.o
+ .debug_str     0x00002836      0xf33 src/menu_hooks.o
+ .debug_str     0x00002836      0x368 src/main.o
+ .debug_str     0x00002836     0x17f4 src/supercharge.o
+ .debug_str     0x00002836     0x1b8b src/misc_update.o
+ .debug_str     0x00002836      0x210 src/custom_text.o
+ .debug_str     0x00002836     0x12b6 src/gametime.o
+ .debug_str     0x00002836      0x1d4 src/check_region.o
+ .debug_str     0x00002836      0xf12 src/misc_functions.o
 
-.debug_frame    0x00000000      0x550
+.debug_frame    0x00000000      0x54c
  .debug_frame   0x00000000       0x5c src/custom_title_screen.o
- .debug_frame   0x0000005c       0x3c src/main.o
- .debug_frame   0x00000098       0x74 src/supercharge.o
- .debug_frame   0x0000010c       0xb8 src/gametime.o
- .debug_frame   0x000001c4       0x30 src/custom_text.o
- .debug_frame   0x000001f4      0x18c src/misc_functions.o
- .debug_frame   0x00000380       0x20 src/check_region.o
- .debug_frame   0x000003a0       0x3c src/misc_update.o
- .debug_frame   0x000003dc      0x174 src/menu_hooks.o
+ .debug_frame   0x0000005c      0x174 src/menu_hooks.o
+ .debug_frame   0x000001d0       0x3c src/main.o
+ .debug_frame   0x0000020c       0x7c src/supercharge.o
+ .debug_frame   0x00000288       0x40 src/misc_update.o
+ .debug_frame   0x000002c8       0x30 src/custom_text.o
+ .debug_frame   0x000002f8       0xb8 src/gametime.o
+ .debug_frame   0x000003b0       0x20 src/check_region.o
+ .debug_frame   0x000003d0      0x17c src/misc_functions.o

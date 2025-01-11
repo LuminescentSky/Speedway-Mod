@@ -24,6 +24,7 @@ int superchargeHeightStartedOffset = 0;
 int chargeTransitionMomentumStart = 0;
 int chargeTransitionMomentum = 0;
 int chargeTransitionTime = 0;
+int previousSpyroState = 0;
 int levelHeightCaps[40] = {
     13100,
     28100,
@@ -66,12 +67,12 @@ int levelHeightCaps[40] = {
     18000,
 
     // LOOT
-    16000,
-    18100,
-    20100,
-    22200,
-    24200,
-    26300
+    15900,
+    18000,
+    20000,
+    22100,
+    24100,
+    26200
 };
 
 // 22784 is max pal absolute momentum when supercharging, default offset 18300 achieves that
@@ -194,9 +195,9 @@ void SuperchargeUpdate(void)
         // Stuff that checks for charging in air and charging state to make Spyro supercharge instead
         // When charging, use some janky level dissociation workaround to make it work
         if (_spyro.state == CHARGING_AIR) {
-            if (_currentAnimationState == 3) {
+            if (_currentAnimationState == 3 && !isSupercharging) {
                 // Cancel charging in air when roll bouncing to prevent crashing
-                _spyro.state = JUMP;
+                _spyro.state = previousSpyroState;
             } else {
                 // Sometimes Supercharge is lost when supercharge jumping, so always give supercharge when charging in air
                 _spyro.subState = SUBSTATE_SUPERCHARGE;
@@ -247,53 +248,61 @@ void SuperchargeUpdate(void)
         }
 
         // DEBUG (in-game "ram watch")
-        /*sprintf(&sharpTurnInfo, "%d %d %d", xButtonFlag, defaultOffset, _spyro.airMomentum.z);
+        sprintf(&sharpTurnInfo, "%d %d %d", completionFlags[realLevelIDIndex / 32] & 1 << (realLevelIDIndex % 32), LevelComplete(), _spyro.airMomentum.z);
         DrawTextAll(
             sharpTurnInfo,
             &(CapitalTextInfo){.x = 0x10, .y = SCREEN_BOTTOM_EDGE - 0x20, .size = DEFAULT_SIZE},
             &(LowercaseTextInfo){.spacing = DEFAULT_SPACING, .yOffset = 0, .size = DEFAULT_SIZE},
             DEFAULT_SPACING,
             MOBY_COLOR_GOLD
-        );*/
+        );
+        previousSpyroState = _spyro.state;
     }
     if (isSupercharging) {
 
 
-            // Make UpdateSpyroAnim return immediately
-            // Attempted to load supercharge animations in supercharge levels however flaming and supercharging at the same time
-            // can crash the game (too many particles?) so not doing that for now
+        // Make UpdateSpyroAnim return immediately
+        // Attempted to load supercharge animations in supercharge levels however flaming and supercharging at the same time
+        // can crash the game (too many particles?) so not doing that for now
 //            if (!IsInSuperchargeLevel()) {
-                UpdateSpyroAnim = JR_RA;
-                UpdateSpyroAnim_2 = NOP;
+            UpdateSpyroAnim = JR_RA;
+            UpdateSpyroAnim_2 = NOP;
 //            }
 
-            // Update Speed
+        // Update Speed
 /*          if (_currentButtonOneFrame & R1_BUTTON)
-            {
-                superchargeHeightStartedOffset += 2000;
-            }
-            else if (_currentButtonOneFrame & L1_BUTTON)
-            {
-                superchargeHeightStartedOffset -= 2000;
-            }*/
-
-            // Use a constant speed to forcibly normalise differences between supercharging being started from charging in air and charging
-            // This also means supercharge speed will always be the same regardless of altitude unless L1 or R1 are used
-            _somethingSuperchargeRelated = 0x2000;
-            _spyro.superchargeHeightStarted = _spyro.position.z + superchargeHeightStartedOffset;
-        } else if (!isSupercharging) {
-            // Set original opcodes for UpdateSpyroAnim
-            UpdateSpyroAnim = OPCODE1;
-            if(CheckRegion() == NTSC)
-            {
-                UpdateSpyroAnim_2 = OPCODE2_NTSC;
-            }
-            else
-            {
-                UpdateSpyroAnim_2 = OPCODE2_PAL
-            }
-
+        {
+            superchargeHeightStartedOffset += 2000;
         }
+        else if (_currentButtonOneFrame & L1_BUTTON)
+        {
+            superchargeHeightStartedOffset -= 2000;
+        }*/ 
+        if (_altLevelID % 10 == 5 && !(completionFlags[realLevelIDIndex / 32] & (1 << (realLevelIDIndex % 32)))) {
+            if (_spyro.subState == SUBSTATE_SUPERCHARGE) {
+                // timer freezes when supercharging, so advancing it forward when that is the case
+                _flightExpirationVisualTimer -= 2;
+                _flightLevelExpirationTimer -= 2;
+            }
+        }
+
+        // Use a constant speed to forcibly normalise differences between supercharging being started from charging in air and charging
+        // This also means supercharge speed will always be the same regardless of altitude unless L1 or R1 are used
+        _somethingSuperchargeRelated = 0x2000;
+        _spyro.superchargeHeightStarted = _spyro.position.z + superchargeHeightStartedOffset;
+    } else if (!isSupercharging) {
+        // Set original opcodes for UpdateSpyroAnim
+        UpdateSpyroAnim = OPCODE1;
+        if(CheckRegion() == NTSC)
+        {
+            UpdateSpyroAnim_2 = OPCODE2_NTSC;
+        }
+        else
+        {
+            UpdateSpyroAnim_2 = OPCODE2_PAL
+        }
+
+    }
 }
 
 void SharpTurning(void) {

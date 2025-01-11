@@ -20,18 +20,6 @@ bool madeDragonsInstant = false;
 
 void MiscUpdate() {
 
-    // Allow dragons to be skipped instantly
-    if (_levelLoadState != -1 || _gameState == GAMESTATE_DEATH) {
-        madeDragonsInstant = false;
-    }
-    if (_gameState == GAMESTATE_GAMEPLAY && !madeDragonsInstant) {
-        NoDragonAnimation();
-        madeDragonsInstant = true;
-    }
-    if (collectedDragonsPerLevel[INDEX_GNASTYS_WORLD] == 2) {
-        _gnastysWorldDragonFlag |= 1;
-    }
-
     // Keep track of the level ID Index every frame as it is used to alter the inventory menu for level warping.
     // Save and load collectables every frame as long as the inventory isn't opened.
     if (_gameState != GAMESTATE_INVENTORY) {
@@ -65,10 +53,20 @@ void MiscUpdate() {
         }
         _globalLives = 0;
         _orbCount = 0;
-        char i = 0;
-        while (i < 5) {
-            currentFlightCollectableFlags[i] = _permanentFlightCollectableFlags[realLevelIDIndex / 6 * 5 + i];
-            i++;
+        if (_levelID % 10 == 5) {
+            char i = 0;
+            while (i < 5) {
+                currentFlightCollectableFlags[i] = _permanentFlightCollectableFlags[realLevelIDIndex / 6 * 5 + i];
+                i++;
+            }
+            if (completionFlags[realLevelIDIndex / 32] & (1 << (realLevelIDIndex % 32))) {
+                // Not keeping track of IGT PBs with the built in variables anyway so not gonna matter.
+                // I'm only using them as "flags" now to have the top right countdown/timer work the way I need it to.
+                _flightLevelTimes[realLevelIDIndex / 6] = 0x1000000;
+            } else {
+                _flightLevelTimes[realLevelIDIndex / 6] = 0;
+            }
+            
         }
         if (_levelID == BLOWHARD_ID) {
             _blowhardPhase = 0;
@@ -87,7 +85,6 @@ void MiscUpdate() {
             soundEffectDuration = 0;
         }
         RestartDrawWorldAndObjects();
-        NoDragonAnimation();
     }
 
     // Custom menu screens extended
@@ -147,8 +144,21 @@ void MiscUpdate() {
             }
         } else if (LevelComplete() && _altLevelID % 10 != 5) {
             LoadIGTMenu(true);
-        } else if (_altLevelID % 10 == 5 && _flightLevelExpirationTimer == 0) {
-            timeTrialFailedReason = 2;
+        } else if (_flightLevelExpirationTimer == -2 && _altLevelID % 10 == 5) {
+            OpenFlightMenu();
+        }
+        // Putting the dragon code here reduces the amount of RAM use (causes a bit of a code mess but whatever)
+        if (!madeDragonsInstant) {
+            Moby* mobyIteration = _ptrLevelMobys;
+            char dragonLoop = 0;
+            do {
+                if (mobyIteration->type == 250) {
+                    *(int*)((char*)mobyIteration->ptr_mobyData + 0x18) = -1;
+                    dragonLoop++;
+                }
+                mobyIteration++;
+            } while (dragonLoop < _maxDragonsPerLevel[realLevelIDIndex] && _altLevelID != GNASTYS_WORLD_ID);
+            madeDragonsInstant = true;
         }
     } else if (_gameState == GAMESTATE_FLIGHT_LEVEL_MENU) {
         if (selectedQuitGame) {
@@ -156,9 +166,7 @@ void MiscUpdate() {
             _startMenuSelection = 1;
             _startMenuState = 2;
         } else {
-            if (_flightLevelTimes[realLevelIDIndex / 6] == 0) {
-                _flightLevelTimes[realLevelIDIndex / 6] = 0x1000000;
-            }
+            _flightLevelTimes[realLevelIDIndex / 6] = 0x1000000; // Only doing that so it shows "Press X Button" instead of retry
             if (_flightMenuState != 100) {
                 seenFlightCollectables = true;
             } else if (_flightMenuState == 100) {
@@ -170,7 +178,9 @@ void MiscUpdate() {
                 if (warping) {
                     PrepareWarping();
                 } else {
-                    if (_quitFlightFromPause) {
+                    if (_flightLevelExpirationTimer == -2) {
+                        timeTrialFailedReason = 2;
+                    } else if (_quitFlightFromPause) {
                         timeTrialFailedReason = 3;
                     } else if (!LevelComplete() && timeTrialFailedReason != 2) {
                         timeTrialFailedReason = 4;
@@ -182,11 +192,20 @@ void MiscUpdate() {
         }
     }
 
+    // Set the "Quit" option in the pause menu back to "Quit" from "Quit Game" whenever it's not selected
     if (_gameState != GAMESTATE_PAUSED || _startMenuSelection != 3 || _startMenuState != 0) {
         selectedQuitGame = false;
     }
 
-    if (_gameState == GAMESTATE_LOADING || _gameState == GAMESTATE_CREDITS || _gameState == GAMESTATE_DEATH) {
+    // Reset ending type and the dragon animation removal flag during load screens and deaths
+    if (_levelLoadState != -1 || _gameState == GAMESTATE_DEATH) {
+        _spyro.health = 3;
         endingType = 0;
+        madeDragonsInstant = false;
+    }
+
+    // Patch Delbin Dragon Dupe
+    if (collectedDragonsPerLevel[INDEX_GNASTYS_WORLD] == 2) {
+        _gnastysWorldDragonFlag |= 1;
     }
 }

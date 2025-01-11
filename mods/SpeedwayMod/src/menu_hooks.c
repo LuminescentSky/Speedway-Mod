@@ -558,9 +558,6 @@ void BeforeInventoryUpdate() {
                     bestTimes[realLevelIDIndex] = levelGameTime;
                     newBestTime = false;
                 }
-                if (_altLevelID % 10 == 5 && bestTimes[realLevelIDIndex] == 0) {
-                    _flightLevelTimes[realLevelIDIndex / 6] = 0;
-                }
             }
             if ((_currentButtonOneFrame & TRIANGLE_BUTTON) && LevelComplete() && IGTpage == 1) {
                 customMenuColorArray[customMenuSelection] = MOBY_COLOR_GOLD;
