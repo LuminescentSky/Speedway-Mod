@@ -1,0 +1,132 @@
+NTSC, exe, 0x80033e38, 0x0, asm/hook.s
+NTSC, exe, 0x8002edac, 0x0, asm/inventoryToPauseHook.s
+NTSC, exe, 0x8002edd8, 0x0, asm/inventoryToGameplayHook.s
+NTSC, exe, 0x8002d860, 0x0, asm/inventoryToCreditsHook.s
+NTSC, exe, 0x8002c7b4, 0x0, asm/openInventoryHook.s
+NTSC, exe, 0x8002da3c, 0x0, asm/cheat.s
+NTSC, exe, 0x800338d0, 0x0, asm/beforeInventoryUpdateHook.s
+NTSC, exe, 0x800338b8, 0x0, asm/beforePauseMenuUpdateHook.s
+NTSC, exe, 0x80033b3c, 0x0, asm/beforeHUDUpdateHook.s
+NTSC, exe, 0x800557c4, 0x0, asm/HUDUpdateReturnHook.s
+NTSC, exe, 0x8002e27c, 0x0, asm/quitGame.s
+NTSC, exe, 0x8001c574, 0x0, asm/menuTextHook.s
+NTSC, exe, 0x8004a4d8, 0x0, asm/beforeDeathHook.s
+NTSC, exe, 0x8001e73c, 0x0, asm/dontDrawText1.s
+NTSC, exe, 0x8001e780, 0x0, asm/dontDrawText2.s
+NTSC, exe, 0x8003f050, 0x0, asm/disableChargeSound_ntsc.s
+NTSC, exe, 0x800691a4, 0x0, asm/overwriteRawInputs.s
+NTSC, exe, 0x8002eb0c, 0x0, asm/exitLevelHook.s
+NTSC, exe, 0x8002c620, 0x0, asm/stopSoundHook.s
+NTSC, exe, 0x800331e0, 0x0, asm/stopSoundHook2.s
+NTSC, exe, 0x8002ccc8, 0x0, asm/fairyFix.s
+NTSC, header, 0x8000B0B8, 0x0, src/custom_title_screen.c, Header.bin
+NTSC, exe, 0x8002f3e4, 0x0, src/menu_hooks.c src/main.c src/supercharge.c, DragonAndFairyUpdate.bin
+NTSC, exe, 0x8001cfdc, 0x0, src/misc_update.c src/custom_text.c, DrawDragonAndFairyText.bin
+NTSC, exe, 0x80066840, 0x0, src/check_region.c src/misc_functions.c, MemoryCardArea.bin
+NTSC, exe, 0x8002d580, 0x0, src/gametime.c, DebugLevelSelect.bin
+
+PAL, exe, 0x80039084, 0x0, asm/hook.s
+PAL, exe, 0x80033d7c, 0x0, asm/inventoryToPauseHook.s
+PAL, exe, 0x80033da8, 0x0, asm/inventoryToGameplayHook.s
+PAL, exe, 0x80032640, 0x0, asm/inventoryToCreditsHook.s
+PAL, exe, 0x800317f4, 0x0, asm/openInventoryHook.s
+PAL, exe, 0x8003281c, 0x0, asm/cheat.s
+PAL, exe, 0x80038b1c, 0x0, asm/beforeInventoryUpdateHook.s
+PAL, exe, 0x80038b04, 0x0, asm/beforePauseMenuUpdateHook.s
+PAL, exe, 0x80038d88, 0x0, asm/beforeHUDUpdateHook.s
+PAL, exe, 0x8005ae30, 0x0, asm/HUDUpdateReturnHook.s
+PAL, exe, 0x80033198, 0x0, asm/quitGame.s
+PAL, exe, 0x80020ea0, 0x0, asm/menuTextHook.s
+PAL, exe, 0x80023e6c, 0x0, asm/beforeMenuTextHook.s
+PAL, exe, 0x8004fb30, 0x0, asm/beforeDeathHook.s
+PAL, exe, 0x80023660, 0x0, asm/dontDrawText1_pal.s
+PAL, exe, 0x800236d0, 0x0, asm/dontDrawText2_pal.s
+PAL, exe, 0x8004451c, 0x0, asm/disableChargeSound_pal.s
+PAL, exe, 0x8006e618, 0x0, asm/overwriteRawInputs.s
+PAL, exe, 0x80033abc, 0x0, asm/exitLevelHook.s
+PAL, exe, 0x80031660, 0x0, asm/stopSoundHook.s
+PAL, exe, 0x800383a4, 0x0, asm/stopSoundHook2.s
+PAL, exe, 0x80031d3c, 0x0, asm/fairyFix.s
+PAL, header, 0x8000B0B8, 0x0, src/custom_title_screen.c, Header.bin
+PAL, exe, 0x800343b4, 0x0, src/menu_hooks.c src/main.c src/supercharge.c, DragonAndFairyUpdate.bin
+PAL, exe, 0x8002191c, 0x0, src/misc_update.c src/custom_text.c src/gametime.c, DrawDragonAndFairyText.bin
+PAL, exe, 0x8006bcb4, 0x0, src/misc_functions.c, MemoryCardArea.bin
+
+PS2_NTSC, exe, 0x80033e38, 0x0, asm/hook.s
+PS2_NTSC, exe, 0x8002e27c, 0x0, asm/quitGame.s
+PS2_NTSC, exe, 0x8001c574, 0x0, asm/menuTextHook.s
+PS2_NTSC, exe, 0x8001e73c, 0x0, asm/dontDrawText1.s
+PS2_NTSC, exe, 0x8001e780, 0x0, asm/dontDrawText2.s
+PS2_NTSC, exe, 0x8003f050, 0x0, asm/disableChargeSound_ntsc.s
+PS2_NTSC, exe, 0x800691a4, 0x0, asm/overwriteRawInputs.s
+PS2_NTSC, exe, 0x8002eb0c, 0x0, asm/quitSpeedway.s
+PS2_NTSC, header, 0x8000A91C, 0x0, src/custom_title_screen.c, TitleScreen.bin
+PS2_NTSC, exe, 0x800314b4, 0x0, src/supercharge.c, OtherStuff.bin
+PS2_NTSC, exe, 0x8001d718, 0x0, src/main.c src/gametime.c src/custom_text.c, IGT.bin
+PS2_NTSC, exe, 0x80066840, 0x0, src/igt_menu.c, IL.bin
+PS2_NTSC, exe, 0x8002f3e4, 0x0, src/misc_functions.c src/check_region.c, Misc.bin
+
+PS2_PAL, exe, 0x80039084, 0x0, asm/hook.s
+PS2_PAL, exe, 0x80033d7c, 0x0, asm/inventoryToPauseHook.s
+PS2_PAL, exe, 0x80033da8, 0x0, asm/inventoryToGameplayHook.s
+PS2_PAL, exe, 0x80032640, 0x0, asm/inventoryToCreditsHook.s
+PS2_PAL, exe, 0x800317f4, 0x0, asm/openInventoryHook.s
+PS2_PAL, exe, 0x8003281c, 0x0, asm/cheat.s
+PS2_PAL, exe, 0x80038b1c, 0x0, asm/beforeInventoryUpdateHook.s
+PS2_PAL, exe, 0x80038b04, 0x0, asm/beforePauseMenuUpdateHook.s
+PS2_PAL, exe, 0x80038d88, 0x0, asm/beforeHUDUpdateHook.s
+PS2_PAL, exe, 0x8005ae30, 0x0, asm/HUDUpdateReturnHook.s
+PS2_PAL, exe, 0x80033198, 0x0, asm/quitGame.s
+PS2_PAL, exe, 0x80020ea0, 0x0, asm/menuTextHook.s
+PS2_PAL, exe, 0x80023e6c, 0x0, asm/beforeMenuTextHook.s
+PS2_PAL, exe, 0x8004fb30, 0x0, asm/beforeDeathHook.s
+PS2_PAL, exe, 0x80023660, 0x0, asm/dontDrawText1_pal.s
+PS2_PAL, exe, 0x800236d0, 0x0, asm/dontDrawText2_pal.s
+PS2_PAL, exe, 0x8004451c, 0x0, asm/disableChargeSound_pal.s
+PS2_PAL, exe, 0x8006e618, 0x0, asm/overwriteRawInputs.s
+PS2_PAL, exe, 0x80033abc, 0x0, asm/exitLevelHook.s
+PS2_PAL, exe, 0x80031660, 0x0, asm/stopSoundHook.s
+PS2_PAL, exe, 0x800383a4, 0x0, asm/stopSoundHook2.s
+PS2_PAL, exe, 0x80031d3c, 0x0, asm/fairyFix.s
+PS2_PAL, header, 0x8000A91C, 0x0, src/custom_title_screen.c, TitleScreen.bin
+PS2_PAL, exe, 0x800343b4, 0x0, src/menu_hooks.c src/main.c src/supercharge.c, DragonAndFairyUpdate.bin
+PS2_PAL, exe, 0x8002191c, 0x0, src/misc_update.c src/custom_text.c src/gametime.c, DrawDragonAndFairyText.bin
+PS2_PAL, exe, 0x8006bcb4, 0x0, src/misc_functions.c, MemoryCardArea.bin
+
+J, exe, 0x80034624, 0x0, asm/hook.s
+J, exe, 0x8002d218, 0x0, asm/quitGame.s
+J, exe, 0x8001d630, 0x0, asm/dontDrawText1_j.s
+J, exe, 0x8001d6a4, 0x0, asm/dontDrawText2_j.s
+J, exe, 0x80042b64, 0x0, asm/disableChargeSound_j.s
+J, exe, 0x8006de20, 0x0, asm/overwriteRawInputs.s
+J, header, 0x8000B0B8, 0x0, src/custom_title_screen.c, TitleScreen.bin
+J, exe, 0x80030778, 0x0, src/main.c src/supercharge.c src/check_region.c, OtherStuff.bin
+J, exe, 0x8001c500, 0x0, src/gametime.c src/custom_text.c, IGT.bin
+
+PROTOTYPE, exe, 0x80034624, 0x0, asm/hook.s
+
+REDUX_PAL, exe, 0x80039084, 0x0, asm/hook.s
+REDUX_PAL, exe, 0x80033d7c, 0x0, asm/inventoryToPauseHook.s
+REDUX_PAL, exe, 0x80033da8, 0x0, asm/inventoryToGameplayHook.s
+REDUX_PAL, exe, 0x80032640, 0x0, asm/inventoryToCreditsHook.s
+REDUX_PAL, exe, 0x800317f4, 0x0, asm/openInventoryHook.s
+REDUX_PAL, exe, 0x8003281c, 0x0, asm/cheat.s
+REDUX_PAL, exe, 0x80038b1c, 0x0, asm/beforeInventoryUpdateHook.s
+REDUX_PAL, exe, 0x80038b04, 0x0, asm/beforePauseMenuUpdateHook.s
+REDUX_PAL, exe, 0x80033198, 0x0, asm/quitGame.s
+REDUX_PAL, exe, 0x80020ea0, 0x0, asm/menuTextHook.s
+REDUX_PAL, exe, 0x80023e6c, 0x0, asm/beforeMenuTextHook.s
+REDUX_PAL, exe, 0x8004fb30, 0x0, asm/beforeDeathHook.s
+REDUX_PAL, exe, 0x80023660, 0x0, asm/dontDrawText1_pal.s
+REDUX_PAL, exe, 0x800236d0, 0x0, asm/dontDrawText2_pal.s
+REDUX_PAL, exe, 0x8004451c, 0x0, asm/disableChargeSound_pal.s
+REDUX_PAL, exe, 0x8006e618, 0x0, asm/overwriteRawInputs.s
+REDUX_PAL, exe, 0x80033abc, 0x0, asm/exitLevelHook.s
+REDUX_PAL, exe, 0x80031660, 0x0, asm/stopSoundHook.s
+REDUX_PAL, exe, 0x800383a4, 0x0, asm/stopSoundHook2.s
+REDUX_PAL, exe, 0x80031d3c, 0x0, asm/fairyFix.s
+REDUX_PAL, header, 0x8000A91C, 0x0, src/custom_title_screen.c, TitleScreen.bin
+REDUX_PAL, exe, 0x80036558, 0x0, src/supercharge.c src/custom_text.c, OtherStuff.bin
+REDUX_PAL, exe, 0x80022058, 0x0, src/main.c src/gametime.c src/instantDragons.c, IGT.bin
+REDUX_PAL, exe, 0x8006bcb4, 0x0, src/misc_functions.c src/check_region.c src/igt_menu.c, IL.bin
+REDUX_PAL, exe, 0x800343b4, 0x0, src/menu_hooks.c, Misc.bin

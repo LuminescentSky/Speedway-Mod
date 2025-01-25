@@ -1,0 +1,2 @@
+To build the NTSC-U version, place your spyro1.bin in this folder, specifically named "spyro1.bin".
+To build the PAL version, place your pal.bin in this folder, specifically named "pal.bin".

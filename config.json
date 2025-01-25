@@ -1,0 +1,91 @@
+{
+    "compiler": {
+        "function_sections": 1,
+        "reorder_functions": 1,
+        "optimization": 4,
+        "debug": 1,
+        "psyq": 0,
+        "8mb": 0
+    },
+    "versions": [
+    {
+        "NTSC": 
+        {
+            "name": "spyro1.bin",
+            "symbols": 
+            [
+                "symbols.txt",
+                "funcs.txt"
+            ],
+            "build_id": 94228
+        }
+    },
+    {
+        "PAL": 
+        {
+            "name": "pal.bin",
+            "symbols": 
+            [
+                "pal.txt"
+            ],
+            "build_id": 94229
+        }
+    },
+    {
+        "PS2_NTSC": 
+        {
+            "name": "spyro1.bin",
+            "symbols": 
+            [
+                "symbols.txt",
+                "funcs.txt"
+            ],
+            "build_id": 94230
+        }
+    },
+    {
+        "PS2_PAL": 
+        {
+            "name": "pal.bin",
+            "symbols": 
+            [
+                "pal.txt"
+            ],
+            "build_id": 94250
+        }
+    },
+    {
+        "J": 
+        {
+            "name": "SpyroJ.bin",
+            "symbols": 
+            [
+                "jp.txt"
+            ],
+            "build_id": 45395
+        }
+    },
+    {
+        "PROTOTYPE": 
+        {
+            "name": "prototype.bin",
+            "symbols": 
+            [
+                "symbols.txt"
+            ],
+            "build_id": 12345
+        }
+    },
+    {
+        "REFUX_PAL": 
+        {
+            "name": "pal.bin",
+            "symbols": 
+            [
+                "pal.txt"
+            ],
+            "build_id": 12346
+        }
+    }
+    ]
+}
