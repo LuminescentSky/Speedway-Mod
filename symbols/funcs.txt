@@ -1,0 +1,77 @@
+printf = 0x8006279c;
+sprintf = 0x80062fd4;
+memset = 0x80016914;
+memcpy = 0x800626f8;
+rand = 0x8006272c;
+srand = 0x8006275c;
+
+DrawTextCapitals = 0x80017FE4;
+DrawTextAll = 0x800181AC;
+DrawTextBox = 0x8001860c;
+DrawArrow = 0x80018534;
+DrawLine = 0x8001844c;
+DrawPrimitive = 0x800168dc;
+FillScreenColor = 0x800190d4;
+
+PlaySoundEffect = 0x80055a78;
+
+DrawShapePreReq = 0x80060670;
+DrawMobys = 0x8001f798;
+CopyHudToShaded = 0x80018880;
+DrawShadedMobys = 0x80022a2c;
+
+UpdateMobyCollision = 0x800529e4;
+
+Vec3IntToShortDiv4 = 0x80017bfc;
+
+GetNextParticleSlot = 0x80053570;
+CreateParticle = 0x800873e0;
+
+PlayIntroCutscenes = 0x800331ac;
+TheAdventureBegins = 0x8002d440;
+TheAdventureContinues = 0x80032b08;
+
+LockCameraToSpyro = 0x80035fb4;
+
+RenderObjs = 0x80019698;
+
+maybe_Calculate8BitDifference = 0x80017908;
+maybe_CalculateAngle = 0x800169ac;
+
+CdRead = 0x8006606C;
+CdInit = 0x8006397C;
+CdReadCallback = 0x8006623C;
+CdStatus = 0x80063A8C;
+CdSync = 0x80063BD8;
+CdControl = 0x80063C48;
+CdControlB = 0x80063EAC;
+CdDataCallback = 0x80064050;
+CdIntToPos = 0x80064094;
+CdPosToInt = 0x80064198;
+Cd_Sync = 0x800647A0;
+CdGetSector = 0x80064010;
+
+UpdateTerrain = 0x8002b390;
+TerrainSkipToKeyFrame = 0x8002b444;
+TerrainCurrentKeyFrame = 0x8002b3f4;
+
+StopSounds = 0x80056b28;
+UnkFunction3 = 0x80056ed4;
+UnkFunction4 = 0x8005b7d8;
+UnkFunction6 = 0x8001277c;
+ExitLevel = 0x8002c618;
+SetGamestateDeath = 0x8002c85c;
+maybe_drawMenuText = 0x8001a40c;
+
+PauseMenuUpdate = 0x8002e12c;
+InventoryUpdate = 0x8002eb2c;
+TextAnimation = 0x80058cc0;
+InventoryToGameplay = 0x8002c7bc;
+InventoryCheatCodes = 0x8002d810;
+PausingRelated = 0x8002c420;
+LoadCredits = 0x8002d228;
+HUDUpdate = 0x80054988;
+OpenFlightMenu = 0x8007ae08;
+OpenInventory = 0x8002c714;
+HUDSpin = 0x800544a8;
+UpdateHUDInfo = 0x800542e4;

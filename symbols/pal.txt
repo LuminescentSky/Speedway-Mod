@@ -1,0 +1,274 @@
+
+sprintf = 0x80068448;
+
+_spyro = 0x8007f3e8;
+
+_onSuperchargeGround = 0x8007F638;
+
+_currentButtonOneFrame = 0x8007dd08;
+_currentButton = 0x8007dd10;
+
+_inabilityToReglide = 0x8007F538;
+
+UpdateSpyroAnim = 0x80042110;
+UpdateSpyroAnim_2 = 0x80042114;
+
+TheAdventureBegins = 0x800324b8;
+
+menuColorR = 0x8001e524;
+menuColorG = 0x8001e52c;
+
+_isPastTitleScreen = 0x8007bf34;
+_startMenuState = 0x8007C094;
+_startMenuSelection = 0x8007BFE8;
+
+_globalTimer = 0x8007aec8;
+
+_levelID = 0x8007C188;
+_altLevelID = 0x8007C23C;
+_gameState = 0x8007C0A4;
+_abilityToFly = 0x8007F634;
+_somethingSuperchargeRelated = 0x8007F4B0;
+
+_levelLoadState = 0x8007c134;
+_dragonState = 0x8007D9E8;
+
+_globalGems = 0x8007c130;
+_globalLives = 0x8007C100;
+
+StopAllSounds = 0x8005c194;
+UnkFunction3 = 0x8005c574;
+UnkFunction4 = 0x80060c08;
+memset = 0x8001a620;
+memcpy = 0x80067b28;
+_unkVar1 = 0x8007f708;
+_unkVar2 = 0x8007f70c;
+_whichScutscene = 0x8007f724;
+UnkFunction6 = 0x80016360;
+
+DrawTextAll = 0x8001bd5c;
+DrawTextBox = 0x8001c368;
+DrawLine = 0x8001c1a8;
+DrawShapePreReq = 0x80060670;
+DrawPrimitive = 0x800168dc;
+_currentPrim = 0x8007c07c;
+
+_ptrTextUnk = 0x80078698;
+CopyHudToShaded = 0x8001c5c8;
+DrawShadedMobys = 0x80027a64;
+_ptr_HudMobyData = 0x8007bfd8;
+_unk_spinRelated = 0x800720ec;
+
+StopSounds = 0x8005c194;
+PlaySoundEffect = 0x8005b0e4;
+
+_unkVar3 = 0x8007c068;
+
+_superflameTimer = 0x8007F0F8;
+_isInFlightLevel = 0x8007BF58;
+theEgg = 0x8007BEC4;
+
+_rawButtons = 0x8007F032;
+_rawRightAnalogX = 0x8007F035;
+_rawRightAnalogY = 0x8007F034;
+_rawLeftAnalogX = 0x8007F036;
+_rawLeftAnalogY = 0x8007F037;
+
+PausingRelated = 0x80031460;
+
+FUN_80059c6c = 0x80059c6c;
+FUN_80059ff4 = 0x80059ff4;
+
+maybe_drawMenuText = 0x8001e2c4;
+
+FillScreenColor = 0x8001ce34;
+
+UnkFunction7 = 0x8001df08;
+
+_currentCreditsLevel = 0x8007C078;
+
+maybe_anyCutsceneTrigger = 0x8003237c;
+maybe_beforeAnyCutsceneTrigger = 0x80038340;
+LoadCredits = 0x8003229c;
+
+_balloonistCurrentOption = 0x8007E180;
+
+_currentAnimationState = 0x8007F43C;
+
+_heightCap = 0x8007C194;
+_variableHeightCap = 0x8007F540;
+_gnastyGnorc = 0x8015BCA4;
+_levelIDIndex = 0x8007C234;
+
+TestFunc = 0x80043ee8;
+DragonRelated = 0x80036ed8;
+_lootTimer = 0x80157D04;
+ReturnHomeAfterCredits = 0x800385c0;
+ExitLevel = 0x80031658;
+_superchargeInputRelated = 0x80037374;
+SetGamestateDeath = 0x8003189c;
+_drawWorldFunc = 0x80030a04;
+_drawObjectsFunc = 0x8001d3fc;
+_drawParticlesFunc = 0x8005ca68;
+
+_maxGemsPerLevel = 0x80074BC8;
+_maxDragonsPerLevel = 0x80074BA4;
+_maxEggsPerLevel = 0x80074C10;
+_gemsPerLevel = 0x8007DDB0;
+_dragonsPerLevel = 0x8007DC68;
+_eggsPerLevel = 0x8007D978;
+
+_collectablesBitflags = 0x8007e298;
+_keyState = 0x8007c104;
+_ptr_keyChestHostGem = 0x8007c024;
+_shouldRespawnAtCheckpoint = 0x8007e218;
+
+_lootKey1 = 0x80155A50;
+_lootKey2 = 0x80155A80;
+_lootKey3 = 0x80156A88;
+_lootKey4 = 0x80155AB0;
+
+_globalDragons = 0x8007C01C;
+_globalEggs = 0x8007C0E4;
+
+maybe_HUDdrawingRelated = 0x80059ff4;
+
+InventoryToGameplay = 0x800317fc;
+PausedToGameplay = 0x80031574;
+
+_setExitLevelText = 0x80010940;
+_setExitLevelOffset = 0x8001fd90;
+
+DrawHUD = 0x8001d05c;
+DrawLives = 0x80059950;
+_HUDElements = 0x8007e938;
+
+_artisansLiveFlag = 0x8007e2a0;
+_peaceKeepersLiveFlag = 0x8007e360;
+_magicCraftersLiveFlag = 0x8007e41c;
+_beastMakersLiveFlag = 0x8007e4e8;
+_dreamWeaversLiveFlag = 0x8007e5a8;
+_gnastysWorldDragonFlag = 0x8007E658;
+_gnastyGnorcFistGemFlag = 0x8007E6B8;
+
+_blowhardPhase = 0x8007E27C;
+
+_orbCount = 0x8007C1BC;
+
+_inventoryString = 0x800108ec;
+
+InventoryToGameplay = 0x800317fc;
+
+InventoryCheatCodes = 0x800325f0;
+
+InventoryUpdate = 0x80033b20;
+
+_inventoryPage = 0x8007c010;
+
+_enteredLevelFlags = 0x8007f808;
+
+_midInventoryHookAddress = 0x8001fecc;
+
+TextAnimation = 0x8005e360;
+
+_ptr_levelName = 0x80075468;
+_ptr_homeworldName = 0x800753f0;
+_inventoryPageTransition = 0x8007c098;
+
+_flightIGT = 0x8007C1C8;
+_flightLevelExpirationTimer = 0x8007c1dc;
+
+OpenInventory = 0x80031754;
+
+_flightCollectedItems = 0x8007EFC0;
+_flightLevelTimes = 0x8007EFA8;
+_flightMenuState = 0x8007C010;
+_quitFlightFromPause = 0x8007C1D4;
+_permanentFlightCollectableFlags = 0x8007F010;
+_loadScreenVisualGems = 0x8007e748;
+_loadScreenVisualGemsAmount = 0x8007bf90;
+
+_someDragonThing = 0x8007cb18;
+GameplayAfterDragon = 0x80031be0;
+DragonSkip = 0x800318e4;
+
+_ptrLevelMobys = 0x8007c0fc;
+YetAnotherUnkFunc = 0x80041b10;
+_nestor = 0x8016C2CC;
+
+_hook_exitLevel = 0x8001fd90;
+_hook_quit = 0x8001fd18;
+_hook_quitGame = 0x8001fdd8;
+
+DrawArrow = 0x8001c290;
+
+PauseMenuUpdate = 0x80032d58;
+
+_delbin = 0x8016D5B4;
+_setGnexusDragonToMagnus = 0x80081059;
+
+_menuTimer = 0x8007c18c;
+_flightExpirationVisualTimer = 0x8007C110;
+
+OpenFlightMenu = 0x800817a0;
+_timeTrial5sNoise = 0x80180AB0;
+_sunnyFlightTrain0 = 0x8017AE18;
+_sunnyFlightTrain1 = 0x8017B5B8;
+_sunnyFlightTrain2 = 0x8017BD58;
+_sunnyFlightTrain3 = 0x8017C4F8;
+_sunnyFlightTrain4 = 0x8017CC98;
+_sunnyFlightTrain5 = 0x8017D438;
+_sunnyFlightTrain6 = 0x8017DBD8;
+_sunnyFlightTrain7 = 0x8017E378;
+_sunnyFlightTrain8 = 0x8017EB18;
+_sunnyFlightTrain9 = 0x8017F2B8;
+_sunnyFlightTrain10 = 0x8017FA58;
+_sunnyFlightTrain11 = 0x801801F8;
+
+_PRESS_START = 0x80010388;
+_DONE = 0x8007BAA4;
+_TIME_ATTACK = 0x800101FC;
+_EXIT_LEVEL = 0x80010940;
+_RETRY = 0x8007BB8C;
+_QUIT = 0x8007B7A0;
+_CONTINUE = 0x800108B0;
+_YOUR_TIME = 0x80010284;
+_BEST_TIME = 0x80010244;
+_CRASHED = 0x8007B7A8;
+_TIME_IS_UP = 0x80010080;
+
+_dragonsHUD = 0x8007e95c;
+_gemsHUD = 0x8007e958;
+_homeworldIndex = 0x8007c22c;
+
+SetGamestateBalloonist = 0x80081810;
+BalloonUpdate = 0x80037630;
+_balloonistDialogState = 0x8007E184;
+_tucoState = 0x8007C1A7;
+
+UpdateHUDInfo = 0x80059950;
+_dragonHUDTimer = 0x8007e948;
+HUDSpin = 0x80059b14;
+_eggsHUD = 0x8007e964;
+_eggHUDTimer = 0x8007e950;
+
+HUDUpdate = 0x80059ff4;
+DrawHUD = 0x8001d05c;
+
+_vortexFlags = 0x80081038;
+
+_sunnyFlightSubStateCheck1 = 0x80087f9c;
+_sunnyFlightSubStateCheck2 = 0x80088edc;
+_sunnyFlightSubStateCheck3 = 0x8008903c;
+_nightFlightSubStateCheck1 = 0x80087a8c;
+_crystalFlightSubStateCheck1 = 0x80087f30;
+_wildFlightSubStateCheck1 = 0x80086b68;
+_wildFlightSubStateCheck2 = 0x80088164;
+_icyFlightSubStateCheck1 = 0x80087b34;
+_icyFlightSubStateCheck2 = 0x80088bd0;
+_icyFlightSubStateCheck3 = 0x80088a6c;
+
+_sunnyFlightDrawTimer1 = 0x80081e68;
+_sunnyFlightDrawTimer2 = 0x80081e6c;
+
+_setTextBoxTransparency = 0x8001c3d0;

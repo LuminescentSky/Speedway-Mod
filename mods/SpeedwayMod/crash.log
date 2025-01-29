@@ -1,0 +1,17 @@
+ERROR:list index out of range
+Traceback (most recent call last):
+  File "C:\Users\Lucia\Desktop\spyro_modding_stuff\psx-modding-toolchain-main\tools\mod-builder\main.py", line 127, in <module>
+    main()
+  File "C:\Users\Lucia\Desktop\spyro_modding_stuff\psx-modding-toolchain-main\tools\mod-builder\main.py", line 122, in main
+    actions[i]()
+  File "C:\Users\Lucia\Desktop\spyro_modding_stuff\psx-modding-toolchain-main\tools\mod-builder\main.py", line 61, in compile
+    parse_compile_list(make, game_syms)
+  File "C:\Users\Lucia\Desktop\spyro_modding_stuff\psx-modding-toolchain-main\tools\mod-builder\main.py", line 23, in parse_compile_list
+    cl = CompileList(line, sym)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lucia\Desktop\spyro_modding_stuff\psx-modding-toolchain-main\tools\mod-builder\compile_list.py", line 19, in __init__
+    self.parse_line(line)
+  File "C:\Users\Lucia\Desktop\spyro_modding_stuff\psx-modding-toolchain-main\tools\mod-builder\compile_list.py", line 73, in parse_line
+    regex = re.compile(src[1].replace("*", "(.*)"))
+                       ~~~^^^
+IndexError: list index out of range

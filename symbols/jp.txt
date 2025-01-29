@@ -1,0 +1,83 @@
+
+sprintf = 0x80067e94;
+
+_spyro = 0x80082898;
+
+_onSuperchargeGround = 0x80082AE8;
+
+_currentButtonOneFrame = 0x80080f78;
+_currentButton = 0x80080f80;
+
+_inabilityToReglide = 0x800829E8;
+
+UpdateSpyroAnim = 0x800406d8;
+UpdateSpyroAnim_2 = 0x800406dc;
+
+TheAdventureBegins = 0x8002c6e4;
+
+menuColorR = 0x800198c0;
+menuColorG = 0x800198c8;
+
+_isPastTitleScreen = 0x8007f1c4;
+_startMenuState = 0x8007f34c;
+_startMenuSelection = 0x8007f28c;
+
+_globalTimer = 0x8007e7f4;
+
+_levelID = 0x8007f448;
+_altLevelID = 0x8007f510;
+_gameState = 0x8007f35c;
+_abilityToFly = 0x80082AE4;
+_somethingSuperchargeRelated = 0x80082960;
+
+_levelLoadState = 0x8007f3f4;
+_dragonState = 0x80080c30;
+
+_globalGems = 0x8007f3f0;
+_lives = 0x0x8007f3c0;
+
+StopAllSounds = 0x8005b1e8;
+UnkFunction3 = 0x8005b464;
+UnkFunction4 = 0x8005fe04;
+memset = 0x80015ef8;
+_unkVar1 = 0x80082c48;
+_unkVar2 = 0x80082c4c;
+_whichScutscene = 0x80082c64;
+UnkFunction6 = 0x80011b94;
+
+DrawTextAll = 0x80022868;
+TextBox = 0x800179f0;
+
+_ptrTextUnk = 0x8007bf68;
+CopyHudToShaded = 0x80017c28;
+DrawShadedMobys = 0x800217b8;
+_ptr_HudMobyData = 0x0x8007f27c;
+
+StopSounds = 0x0x8005b1e8;
+PlaySoundEffect = 0x80059f90;
+
+_unkVar3 = 0x8007f314;
+
+_superflameTimer = 0x80082568;
+_isInFlightLevel = 0x8007f1e8;
+theEgg = 0x8007BEC4;
+
+_rawButtons = 0x800824a2;
+_rawRightAnalogX = 0x800824a5;
+_rawRightAnalogY = 0x800824a4;
+_rawLeftAnalogX = 0x800824a6;
+_rawLeftAnalogY = 0x800824a7;
+
+PausingRelated = 0x8002b430;
+
+FUN_80059c6c = 0x80058b18;
+FUN_80059ff4 = 0x80058ea0;
+
+maybe_drawMenuText = 0x80019658;
+
+UnkFunction7 = 0x8001929c;
+
+_currentCreditsLevel = 0x8007f324;
+
+maybe_anyCutsceneTrigger = 0x8002c5a8;
+LoadCredits = 0x8002c3f8;

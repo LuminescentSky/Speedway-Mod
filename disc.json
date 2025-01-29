@@ -1,0 +1,124 @@
+{
+    "NTSC": 
+    [
+        {
+            "SCUS_942.28": [
+                {
+                    "name": "header",
+                    "address": "0x8000B070",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ],
+    "PAL": 
+    [
+        {
+            "SCES_014.38": [
+                {
+                    "name": "header",
+                    "address": "0x8000B070",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ],
+    "PS2_NTSC": 
+    [
+        {
+            "SCUS_942.28": [
+                {
+                    "name": "header",
+                    "address": "0x8000A8D0",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ],
+    "PS2_PAL": 
+    [
+        {
+            "SCES_014.38": [
+                {
+                    "name": "header",
+                    "address": "0x8000A8D0",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ],
+    
+    "J": 
+    [
+        {
+            "SCPS_100.83": [
+                {
+                    "name": "header",
+                    "address": "0x8000B070",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ],
+    
+    "PROTOTYPE": 
+    [
+        {
+            "SCUS_942.29": [
+                {
+                    "name": "header",
+                    "address": "0x8000B070",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ],
+
+    "REDUX_PAL": 
+    [
+        {
+            "SCES_014.38": [
+                {
+                    "name": "header",
+                    "address": "0x8000A91C",
+                    "offset": "0x0"
+                },
+                {
+                    "name": "exe",
+                    "address": "0x80010000",
+                    "offset": "0x800"
+                }
+            ]
+        }
+    ]
+}
