@@ -107,6 +107,7 @@ extern char totalDigits;
 
 extern char xButtonFlag;
 extern char xButtonDuration;
+extern bool retrying;
 
 bool LevelComplete(void);
 

@@ -41,8 +41,8 @@ If you wish to compile the mod yourself, you'll need a few prerequisites
 	- After it has compiled, type 4 then enter for "Build Iso", then, type 2 for the PAL PS1 version or 4 for the PAL PS2 version. Other versions are not currently supported or were experiments.
 	- After it has built, your bin/cue should be in /build/
 	- Be sure you built for the correct version. PS2 will not work on PS1/EMU, and visa-versa.
-5. If you wish to add Skyro (my skin), download [Scales](https://github.com/Hwd405/SCALES/releases/tag/v1.0.0). Open a command prompt (cmd) and type the following command:
-	- ```path/to/Scales.exe -i path/to/pal_SpeedwayMod.bin -c path/to/spyro-s1-ej_skyro.bmp```
+5. If you wish to add Skyro (my skin), download [Scales](https://github.com/Hwd405/SCALES/releases/tag/v1.0.0). Open a command prompt (cmd) in the folder where you extracted Scales and type the following command:
+	- ```Scales.exe -i path/to/pal_SpeedwayMod.bin -c path/to/spyro-s1-ej_skyro.bmp```
 	- You can drag and drop each file into the command prompt to automatically fill out the full path. The **spyro-s1-ej_skyro.bmp** can be found in the root directory of this (Speedway Mod) repository.
 
 ## Tools Used In Creation

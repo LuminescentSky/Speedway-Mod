@@ -18,6 +18,7 @@ int startLevel = 0;
 char currentFlightCollectableFlags[5];
 
 bool loopedMobys = false;
+bool retrying;
 
 void MiscUpdate() {
 
@@ -67,7 +68,13 @@ void MiscUpdate() {
         StopDrawWorldAndObjects();
         InitiateLevel();
         startLevel = 2;
-        _gameState = GAMESTATE_DEATH;
+        if (retrying) {
+            _gameState = GAMESTATE_DEATH;
+            retrying = false;
+        } else {
+            _globalLives++;
+            SetGamestateDeath();
+        }
     } else if (startLevel == 2 && _gameState == GAMESTATE_GAMEPLAY) {
         endingType = 0;
         gnastyTimer = 0;

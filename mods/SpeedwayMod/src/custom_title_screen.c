@@ -64,7 +64,7 @@ void CustomTitleScreen()
             // VERSION STRING
             DrawTextAll(
                 stringList[8],
-                &(CapitalTextInfo){.x = SCREEN_RIGHT_EDGE - 0x80, .y = 0x54, .size = 0x1a00},
+                &(CapitalTextInfo){.x = SCREEN_RIGHT_EDGE - 0x60, .y = 0x54, .size = 0x1a00},
                 &(LowercaseTextInfo){.spacing = 0xb, .yOffset = 0, .size = 0x1a00},
                 0xb,
                 MOBY_COLOR_GREY

@@ -180,10 +180,6 @@ void MenuTextMain() {
                 customMenuColorArray[0]
             );
         } else if (guidebookDialogState == IGT_DISPLAY) {
-            if (soundEffectDuration == 1) {
-                StopSounds(0);
-                soundEffectDuration = 0;
-            }
             if (endingType != 0 && timeTrialFailedReason == 0 && !LevelComplete()) {
                 IGTpage = 1;
             }
@@ -512,7 +508,17 @@ void BeforeInventoryUpdate() {
             PlaySoundEffect(0x19, 0, SOUND_PLAYBACK_MODE_NORMAL, 0);
         }
     } else if (guidebookDialogState == IGT_DISPLAY) {
+        if (soundEffectDuration == 1) {
+            StopSounds(0);
+            soundEffectDuration = 0;
+        }
         if (_menuTimer > 4) {
+            if ((_currentButtonOneFrame & TRIANGLE_BUTTON) && LevelComplete() && IGTpage == 1) {
+                customMenuColorArray[customMenuSelection] = MOBY_COLOR_GOLD;
+                IGTpage = 0;
+                customMenuSelection = 1;
+                PlaySoundEffect(0x19, 0, SOUND_PLAYBACK_MODE_NORMAL, 0);
+            }
             if (!(endingType != 0 && IGTpage == 0) && (_currentButtonOneFrame & UP_BUTTON || _currentButtonOneFrame & DOWN_BUTTON)) {
                 customMenuColorArray[customMenuSelection] = MOBY_COLOR_GOLD;
                 PlaySoundEffect(0x19, 0, SOUND_PLAYBACK_MODE_NORMAL, 0);
@@ -548,6 +554,7 @@ void BeforeInventoryUpdate() {
                         // RETRY
                         IGTpage = 0;
                         startLevel = 1;
+                        retrying = true;
                         guidebookDialogState = INVENTORY;
                         timeTrialFailedReason = 0;
                         soundEffectDuration = 3;
@@ -570,12 +577,6 @@ void BeforeInventoryUpdate() {
                     bestTimes[realLevelIDIndex] = levelGameTime;
                     newBestTime = false;
                 }
-            }
-            if ((_currentButtonOneFrame & TRIANGLE_BUTTON) && LevelComplete() && IGTpage == 1) {
-                customMenuColorArray[customMenuSelection] = MOBY_COLOR_GOLD;
-                IGTpage = 0;
-                customMenuSelection = 1;
-                PlaySoundEffect(0x19, 0, SOUND_PLAYBACK_MODE_NORMAL, 0);
             }
         }
     }
