@@ -34,7 +34,7 @@ If you need any help setting up Speedway Mod, got questions about it in general,
 ## Compiling & Building
 If you wish to compile the mod yourself, you'll need a few prerequisites
 1. Compiling this mod requires the [psx-modding-toolchain by Redhot](https://github.com/mateusfavarin/psx-modding-toolchain). 
-2. Once you have installed it and its pre-requisites, place the folder [from the source code download](https://github.com/C0mposer/Spyro-1-Practice-Codes/archive/refs/heads/master.zip), into the **/games/** folder of your psx-modding-toolchain directory.
+2. Once you have installed it and its pre-requisites, place the folder [from the source code download](https://github.com/LuminescentSky/Speedway-Mod/archive/refs/heads/main.zip), into the **/games/** folder of your psx-modding-toolchain directory.
 3. Place your personal Spyro the Dragon (PAL) bin file renamed to **pal.bin** in **/build/**
 4. Browse to the **/mods/SpeedwayMod/** directory, and open the MOD.bat file. From here you should be prompted with multiple options in a command line gui	
 	- First type 1 then press enter to compile, then, type 2 for the PAL PS1 version or 4 for the PAL PS2 version. Other versions are not currently supported or were experiments.
