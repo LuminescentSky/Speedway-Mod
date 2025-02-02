@@ -54,8 +54,8 @@ void GameTime(void) {
 			}
 		}
 		// Prevent Overflow
-		if (totalGameTime > 89567900) {
-			totalGameTime = 89567900;
+		if (totalGameTime > 895679900) {
+			totalGameTime = 895679900;
 		}
 		if (levelGameTime > 89567900) {
 			levelGameTime = 89567900;
@@ -172,7 +172,11 @@ void getCurrentIGT(int inputFrameTime) {
 	    }
     	if (timerArray[0] > 0) {
     		sprintf(&asciiTime, "%d.%d%d.%d%d.%d%d", timerArray[0], timerArray[1], timerArray[2], timerArray[3], timerArray[4], timerArray[5], timerArray[6]);
-    		alignmentOffset = 0;
+    		if (timerArray[0] >= 10) {
+    			alignmentOffset = -18;
+    		} else {
+    			alignmentOffset = 0;
+    		}
     	} else if (timerArray[1] > 0) {
     		sprintf(&asciiTime, "%d%d.%d%d.%d%d", timerArray[1], timerArray[2], timerArray[3], timerArray[4], timerArray[5], timerArray[6]);
     		alignmentOffset = 36;
@@ -193,8 +197,14 @@ void getCurrentIGT(int inputFrameTime) {
 }
 
 int colonOffset(alignment) {
-	if (alignment == RIGHT || timerArray[0] > 0) {
+	if (alignment == RIGHT || (timerArray[0] > 0 && timerArray[0] < 10)) {
 		return 18;
+	} else if (timerArray[0] >= 10) {
+		if (alignment == LEFT) {
+			return 36;
+		} else {
+			return 27;
+		}
 	} else if (timerArray[1] > 0) {
 		if (alignment == LEFT) {
 			return -18;

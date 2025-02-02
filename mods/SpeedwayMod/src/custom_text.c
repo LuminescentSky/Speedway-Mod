@@ -22,7 +22,7 @@ char* stringList[21] = {
 	"SPARXLESS", // 5
 	"RESTORE DEFAULTS", //6
 	"SPEEDWAY MOD", //7
-	"1.0", // 8
+	"1.0.1", // 8
 	"120% GAME COMPLETE", // 9
 	"CONTINUE TO CUTSCENE", // 10
 	"120 GAME COMPLETE", // 11
