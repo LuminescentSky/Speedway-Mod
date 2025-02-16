@@ -411,7 +411,7 @@ void BeforePauseMenuUpdate() {
     if (_globalEggs > 0) {
         HideEggs();
     }
-    if (_startMenuSelection == 3 && _altLevelID % 10 != 0) {
+    if (_startMenuSelection == 3 && _startMenuState == 0 && _altLevelID % 10 != 0) {
         if (_currentButtonOneFrame & LEFT_BUTTON || _currentButtonOneFrame & RIGHT_BUTTON) {
             selectedQuitGame = !selectedQuitGame;
             PlaySoundEffect(0x19, 0, SOUND_PLAYBACK_MODE_NORMAL, 0);
