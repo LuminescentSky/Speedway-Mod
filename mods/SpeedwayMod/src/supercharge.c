@@ -290,7 +290,7 @@ void SuperchargeUpdate(void) {
         }
 
         // DEBUG (in-game "ram watch")
-        /*sprintf(&sharpTurnInfo, "%d %d %d", currentFlightCollectableFlags[4], _permanentFlightCollectableFlags[realLevelIDIndex / 6 * 5 + 4], xButtonFlag);
+        /*sprintf(&sharpTurnInfo, "%d %d %d", currentFlightCollectableFlags[4], _permanentFlightCollectableFlags[realLevelIDIndex / 6 * 5 + 4], _flightCollectedItems[3]);
         DrawTextAll(
             sharpTurnInfo,
             &(CapitalTextInfo){.x = 0x10, .y = SCREEN_BOTTOM_EDGE - 0x20, .size = DEFAULT_SIZE},

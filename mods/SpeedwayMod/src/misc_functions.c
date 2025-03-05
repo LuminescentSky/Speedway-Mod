@@ -193,7 +193,7 @@ void SaveAndLoadCollectables() {
     if (_gameState != GAMESTATE_CUTSCENE) {
         _lootKey4 = 3;
     }*/
-    if (_altLevelID % 10 == 5) {
+    if (_altLevelID % 10 == 5 && (_gameState == GAMESTATE_GAMEPLAY || _gameState == GAMESTATE_FLIGHT_LEVEL_MENU)) {
         char i = 0;
         while (i < 4) {
             if (_flightCollectedItems[i] == 8 && currentFlightCollectableFlags[i] == 0) {
